@@ -34,6 +34,8 @@ class Latinword {
 
         let stem = "";
 
+        listofiumwords=["artis","montis","mortis","noctis","partis","princeps","urbis","civis","hostis","navis","maris"]
+        
         if (gen.slice(-4)=="arum") { //1st plural only
           let stem=this.gen.slice(0,-4);
           this.nom="-";
@@ -175,7 +177,13 @@ class Latinword {
           this.dat=stem+"i";
           this.abl=stem+"e";
 
-          this.genpl=stem+"um"; //add fix for "ium" words
+          if (!listofiumwords.includes(this.gen)) {
+              this.genpl=stem+"um";
+          }
+          else { //accounting for 'ium' words
+              this.genpl=stem+"ium"
+          }
+              
           this.datpl=stem+"ibus";
           this.ablpl=stem+"ibus";
         }
@@ -227,6 +235,7 @@ class Latinword {
       }
 
 let servus=new Latinword("servus","servi","m","slave")
+
 
 
 let wordlist = []
