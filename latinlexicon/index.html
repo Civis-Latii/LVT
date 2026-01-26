@@ -176,7 +176,7 @@ class Latinword {
           else {
             this.genpl=stem+"um";
           }
-          if (iumwordslist.includes(gen)==True) { //accounting for ium words
+          if (iumwordslist.includes(gen)==true) { //accounting for ium words
             this.genpl=stem+"ium";
           }
           else {
@@ -264,9 +264,44 @@ ablpl: ${wordlist[iterablevalue].ablpl}<br>`
   iterablevalue+=1
 
     }
-
+let displaynom=true
 async function startquiz() {
-    document.getElementById("placeholder")
+    if (displaynom) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}`
+    }
+    if (displayvoc) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].voc}`
+    }
+    if (displayacc) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].acc}`
+    }
+    if (displaygen) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].gen}`
+    }
+    if (displaydat) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].dat}`
+    }
+    if (displayabl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].abl}`
+    }
+    if (displaynompl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nompl}`
+    }
+    if (displayvocpl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].vocpl}`
+    }
+    if (displayaccpl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].accpl}`
+    }
+    if (displaygenpl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].genpl}`
+    }
+    if (displaydatpl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].datpl}`
+    }
+    if (displayablpl) {
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].ablpl}`
+    }
 }
 
 </script>
