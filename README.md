@@ -1,2 +1,2 @@
 Hi
-<a href="/latinlexicon/"></a>
+<a href="/LVT/latinlexicon/"></a>
