@@ -33,7 +33,7 @@ class Latinword {
         this.english=english;
 
         let stem = "";
-
+        let iumwordslist = ["corporis","temporis","vulneris","itineris","artis","montis","noctis","partis","principis","urbis","civis","hostis","navis","maris"];
         if (gen.slice(-4)=="arum") { //1st plural only
           let stem=this.gen.slice(0,-4);
           this.nom="-";
@@ -175,7 +175,19 @@ class Latinword {
           this.dat=stem+"i";
           this.abl=stem+"e";
 
-          this.genpl=stem+"um"; //add fix for "ium" words
+          if (iumwordslist.includes(gen)) {
+            this.genpl=stem+"ium";
+          }
+          else {
+            this.genpl=stem+"um";
+          }
+          if (iumwordslist.includes(gen)) { //accounting for ium words
+            this.genpl=stem+"ium";
+          }
+          else {
+            this.genpl=stem+"um";
+          }
+          this.genpl=stem+"um"; 
           this.datpl=stem+"ibus";
           this.ablpl=stem+"ibus";
         }
