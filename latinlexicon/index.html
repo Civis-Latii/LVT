@@ -247,10 +247,14 @@ for (let i=0;i<words.length;i+=4) { //.length/4 means only going 25% of the way 
   wordlist.push(word);
 }
 
-let iterablevalue = 0
+async function random() {
+  iterablevalue = Math.floor(Math.random() * wordlist.length)+1; //random index from 0 to wordlist.length
+}
 
-function incrementvalue() {
-  iterablevalue+=1;
+let iterablevalue = random()
+
+function changevalue() {
+  iterablevalue=random();
   quiz();
 }
 
@@ -269,7 +273,7 @@ genpl: ${wordlist[iterablevalue].genpl}<br>
 datpl: ${wordlist[iterablevalue].datpl}<br>
 ablpl: ${wordlist[iterablevalue].ablpl}<br>`
   
-  iterablevalue+=1;
+  iterablevalue=random();
 
     }
 
