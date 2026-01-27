@@ -247,9 +247,9 @@ for (let i=0;i<words.length;i+=4) { //.length/4 means only going 25% of the way 
   wordlist.push(word);
 }
 
-async function random() {
-  iterablevalue = Math.floor(Math.random() * wordlist.length)+1; //random index from 0 to wordlist.length
-  return iterablevalue
+function random() {
+  let randomInt = (Math.floor(Math.random() * wordlist.length)+1);//random index from 0 to wordlist.length
+  return randomint
 }
 
 let iterablevalue = random();
