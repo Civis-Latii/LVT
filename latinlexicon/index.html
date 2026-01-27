@@ -301,29 +301,30 @@ document.getElementById("abl").onclick = function() {
 
 
 async function quiz() {
+    document.getElementById("placeholder").innerHTML=""; //staring with blank field
     if (displaynom) { //displays case if display [case] is true
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}` 
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}` 
     }
     if (displayvoc) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].voc}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}`
     }
     if (displayacc) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].acc}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}`
     }
     if (displaygen) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].gen}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}`
     }
     if (displaydat) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].dat}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}`
     }
     if (displayabl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].abl}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}`
     }
     if (displaynompl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nompl}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nompl}`
     }
     if (displayvocpl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].vocpl}`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].vocpl}`
     }
     if (displayaccpl) {
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].accpl}`
