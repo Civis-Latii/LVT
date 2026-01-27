@@ -14,6 +14,13 @@
             }
         </style>
     
+        <button type="checkbox" id="nom" name="nom" value="nom">Nominative</button>
+        <button type="checkbox" id="voc" name="voc" value="voc">Vocative</button>
+        <button type="checkbox" id="acc" name="acc" value="acc">Accusative</button>
+        <button type="checkbox" id="gen" name="gen" value="gen">Genitive</button>
+        <button type="checkbox" id="dat" name="dat" value="dat">Dative</button>
+        <button type="checkbox" id="abl" name="abl" value="abl">Ablative</button>
+
     </body>
 </html>
 
@@ -257,7 +264,27 @@ ablpl: ${wordlist[iterablevalue].ablpl}<br>`
   iterablevalue+=1
 
     }
-let displaynom=true
+
+document.getElementById("nom").onclick = function() {
+    displaynom = !displaynom;
+}
+document.getElementById("voc").onclick = function() {
+    displayvoc = !displayvoc;
+}
+document.getElementById("acc").onclick = function() {
+    displayacc = !displayacc;
+}
+document.getElementById("gen").onclick = function() {
+    displaygen = !displaygen;
+}
+document.getElementById("dat").onclick = function() {
+    displaydat = !displaydat;
+}
+document.getElementById("abl").onclick = function() {
+    displayabl = !displayabl;
+}
+
+
 async function startquiz() {
     if (displaynom) {
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}`
@@ -295,16 +322,8 @@ async function startquiz() {
     if (displayablpl) {
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].ablpl}`
     }
-}
+    }
 
-<form action="/action_page.php">
-  <input type="checkbox" id="nom" name="nom" value="nom">
-  <label for="nom">Nominative</label><br>
-  <input type="checkbox" id="acc" name="acc" value="acc">
-  <label for="acc">Accusative</label><br>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-  <label for="vehicle3"> I have a boat</label><br><br>
-  <input type="submit" value="Submit">
-</form>
+
   
 </script>
