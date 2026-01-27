@@ -303,22 +303,22 @@ document.getElementById("abl").onclick = function() {
 async function quiz() {
     document.getElementById("placeholder").innerHTML=""; //staring with blank field
     if (displaynom) { //displays case if display [case] is true
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}\n` 
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}\r\n`
     }
     if (displayvoc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}\r\n`
     }
     if (displayacc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}\r\n`
     }
     if (displaygen) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}\r\n`
     }
     if (displaydat) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}\r\n`
     }
     if (displayabl) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}\r\n`
     }
     if (displaynompl) {
       document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nompl}`
