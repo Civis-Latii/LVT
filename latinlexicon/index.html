@@ -303,22 +303,22 @@ document.getElementById("abl").onclick = function() {
 async function quiz() {
     document.getElementById("placeholder").innerHTML=""; //staring with blank field
     if (displaynom) { //displays case if display [case] is true
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}<br>` //<br> works - it is formatted like the ${}
     }
     if (displayvoc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}<br>`
     }
     if (displayacc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}<br>`
     }
     if (displaygen) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}<br>`
     }
     if (displaydat) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}<br>`
     }
     if (displayabl) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}\r\n`
+      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}<br>`
     }
     if (displaynompl) {
       document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nompl}`
