@@ -265,7 +265,14 @@ ablpl: ${wordlist[iterablevalue].ablpl}<br>`
 
     }
 
-document.getElementById("nom").onclick = function() {
+let displaynom = false //initial value of display [case] is false
+let displayvoc = false
+let displayacc = false
+let displaygen = false
+let displaydat = false
+let displayabl = false
+
+document.getElementById("nom").onclick = function() { //when checkbox clicked toggle value of case
     displaynom = !displaynom;
 }
 document.getElementById("voc").onclick = function() {
@@ -286,8 +293,8 @@ document.getElementById("abl").onclick = function() {
 
 
 async function startquiz() {
-    if (displaynom) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}`
+    if (displaynom) { //displays case if display [case] is true
+      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].nom}` 
     }
     if (displayvoc) {
       document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].voc}`
