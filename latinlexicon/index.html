@@ -2,8 +2,6 @@
 <html>
   <title>Latinlexicon</title>
     <body>
-        <p id="changeendings">Change endings</p>
-        <button onclick="changeendings()">Change endings</button>
 `       <p id="placeholder">Placeholder</p>
         <style>
             body{
@@ -258,25 +256,8 @@ function changevalue() {
   iterablevalue=random();
   quiz();
 }
-
-async function changeendings() {
-  document.getElementById("changeendings").innerHTML=`
-nom: ${wordlist[iterablevalue].nom}<br>
-voc: ${wordlist[iterablevalue].voc}<br>
-acc: ${wordlist[iterablevalue].acc}<br>
-gen: ${wordlist[iterablevalue].gen}<br>
-dat: ${wordlist[iterablevalue].dat}<br>
-abl: ${wordlist[iterablevalue].abl}<br>
-nompl: ${wordlist[iterablevalue].nompl}<br>
-vocpl: ${wordlist[iterablevalue].vocpl}<br>
-accpl: ${wordlist[iterablevalue].accpl}<br>
-genpl: ${wordlist[iterablevalue].genpl}<br>
-datpl: ${wordlist[iterablevalue].datpl}<br>
-ablpl: ${wordlist[iterablevalue].ablpl}<br>`
-  
+ 
   iterablevalue=random();
-
-    }
 
 let displaynom = false; //initial value of display [case] is false
 let displayvoc = false;
