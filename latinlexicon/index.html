@@ -246,14 +246,13 @@ for (let i=0;i<words.length;i+=4) { //.length/4 means only going 25% of the way 
 }
 
 function random() {
-  let randomInt = Math.floor(Math.random() * wordlist.length);//random index from 0 to wordlist.length
-  return randomint;
+  return wordlist[Math.floor(Math.random() * wordlist.length)]; //returns random word
 }
 
-let iterablevalue=random();
+let randword = random();;
 
 function changevalue() {
-  iterablevalue=random();
+  randword = random();
   quiz();
 }
  
@@ -289,40 +288,40 @@ document.getElementById("abl").onclick = function() {
 async function quiz() {
     document.getElementById("placeholder").innerHTML="hi"; //staring with blank field
     if (displaynom) { //displays case if display [case] is true
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nom}<br>` //<br> works - it is formatted like the ${}
+      document.getElementById("placeholder").innerHTML+=`${randword.nom}<br>` //<br> works - it is formatted like the ${}
     }
     if (displayvoc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].voc}<br>`
+      document.getElementById("placeholder").innerHTML+=`${randword.voc}<br>`
     }
     if (displayacc) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].acc}<br>`
+      document.getElementById("placeholder").innerHTML+=`${randword.acc}<br>`
     }
     if (displaygen) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].gen}<br>`
+      document.getElementById("placeholder").innerHTML+=`${randword.gen}<br>`
     }
     if (displaydat) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].dat}<br>`
+      document.getElementById("placeholder").innerHTML+=`${randword.dat}<br>`
     }
     if (displayabl) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].abl}<br>`
+      document.getElementById("placeholder").innerHTML+=`${randword.abl}<br>`
     }
     if (displaynompl) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].nompl}`
+      document.getElementById("placeholder").innerHTML+=`${randword.nompl}`
     }
     if (displayvocpl) {
-      document.getElementById("placeholder").innerHTML+=`${wordlist[iterablevalue].vocpl}`
+      document.getElementById("placeholder").innerHTML+=`${randword.vocpl}`
     }
     if (displayaccpl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].accpl}`
+      document.getElementById("placeholder").innerHTML=`${randword.accpl}`
     }
     if (displaygenpl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].genpl}`
+      document.getElementById("placeholder").innerHTML=`${randword.genpl}`
     }
     if (displaydatpl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].datpl}`
+      document.getElementById("placeholder").innerHTML=`${randword.datpl}`
     }
     if (displayablpl) {
-      document.getElementById("placeholder").innerHTML=`${wordlist[iterablevalue].ablpl}`
+      document.getElementById("placeholder").innerHTML=`${randword.ablpl}`
     }
     }
 
