@@ -256,14 +256,18 @@ function changevalue() {
   quiz();
 }
  
-  iterablevalue=random();
-
 let displaynom = false; //initial value of display [case] is false
 let displayvoc = false;
 let displayacc = false;
 let displaygen = false;
 let displaydat = false;
 let displayabl = false;
+let displaynompl = false;
+let displayvocpl = false;
+let displayaccpl = false;
+let displaygenpl = false;
+let displaydatpl = false;
+let displayablpl = false;
 
 document.getElementById("nom").onclick = function() { //when checkbox clicked toggle value of case
     displaynom = !displaynom;
@@ -324,7 +328,9 @@ async function quiz() {
     if (displayablpl) {
       quizwords.push(randword.ablpl);
     }
-    }
+    
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
+}
 
 </script>
+>
