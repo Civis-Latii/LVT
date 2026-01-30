@@ -291,8 +291,8 @@ document.getElementById("abl").onclick = function() {
 
 async function quiz() {
     let quizwords = [];
-    document.getElementById("placeholder").innerHTML="p l a c e h o l d e r";
-    if (displaynom) {quizwords.push((randword.nom,"nom","sg",randomword.gender));}
+    document.getElementById("placeholder").innerHTML="p l a c e h o l d e r  o n e  s e c o n d";
+    if (displaynom) {quizwords.push(randword.nom);}
     if (displayvoc) {quizwords.push((randword.voc,"voc","sg",randomword.gender));}
     if (displayacc) {quizwords.push((randword.acc,"acc","sg",randword.gender));}
     if (displaygen) {quizwords.push((randword.gen,"gen","sg",randword.gender));}
@@ -306,9 +306,9 @@ async function quiz() {
     if (displayablpl) {quizwords.push((randword.ablpl,"abl","pl",randword.gender));}
     
     
-    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)][0];
+    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
 
 
 }
 
-</script>
+</script>>
