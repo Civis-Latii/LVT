@@ -291,21 +291,24 @@ document.getElementById("abl").onclick = function() {
 
 async function quiz() {
     let quizwords = [];
-    document.getElementById("placeholder").innerHTML=randword.nom; //starting with blank field
-    if (displaynom) {quizwords.push(randword.nom);} //displays case if display [case] is true
-    if (displayvoc) {quizwords.push(randword.voc);}
-    if (displayacc) {quizwords.push(randword.acc);}
-    if (displaygen) {quizwords.push(randword.gen);}
-    if (displaydat) {quizwords.push(randword.dat);}
-    if (displayabl) {quizwords.push(randword.abl);}
-    if (displaynompl) {quizwords.push(randword.nompl);}
-    if (displayvocpl) {quizwords.push(randword.vocpl);}
-    if (displayaccpl) {quizwords.push(randword.accpl);}
-    if (displaygenpl) {quizwords.push(randword.genpl);}
-    if (displaydatpl) {quizwords.push(randword.datpl);}
-    if (displayablpl) {quizwords.push(randword.ablpl);}
+    document.getElementById("placeholder").innerHTML="p l a c e h o l d e r";
+    if (displaynom) {quizwords.push((randword.nom,"nom","sg",randomword.gender));}
+    if (displayvoc) {quizwords.push((randword.voc,"voc","sg",randomword.gender));}
+    if (displayacc) {quizwords.push((randword.acc,"acc","sg",randword.gender));}
+    if (displaygen) {quizwords.push((randword.gen,"gen","sg",randword.gender));}
+    if (displaydat) {quizwords.push((randword.dat,"dat","sg",randword.gender));}
+    if (displayabl) {quizwords.push((randword.abl,"abl","sg",randword.gender));}
+    if (displaynompl) {quizwords.push((randword.nompl,"nom","pl",randword.gender));}
+    if (displayvocpl) {quizwords.push((randword.vocpl,"voc","pl",randword.gender));}
+    if (displayaccpl) {quizwords.push((randword.accpl,"acc","pl",randword.gender));}
+    if (displaygenpl) {quizwords.push((randword.genpl,"gen","pl",randword.gender));}
+    if (displaydatpl) {quizwords.push((randword.datpl,"dat","pl",randword.gender));}
+    if (displayablpl) {quizwords.push((randword.ablpl,"abl","pl",randword.gender));}
     
-    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
+    
+    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)][0];
+
+
 }
 
 </script>
