@@ -22,7 +22,8 @@
         <button id="quiz" onclick="quiz()">Quiz!</button>
         <button id="next" onclick="changevalue()">Next!</button>
 
-        <input type="text" id="answer" name="answer" value=""></body>input?
+        <input type="button" onclick="start()">Start!<input><br>
+        <input type="text" id="answer" name="answer" value=""></input>
 
     </body>
 </html>
@@ -309,11 +310,10 @@ function initialisequiz() {
 }
 
 function start() {
-  initialisequiz();
-  quiz();
+  quiz(initialisequiz());
 }
 
-async function quiz() {
+async function quiz(quizwords) {
     
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
     
