@@ -287,7 +287,7 @@ document.getElementById("abl").onclick = function() {
 
 async function quiz() {
     let quizwords = [];
-    document.getElementById("placeholder").innerHTML="hi"; //starting with blank field
+    document.getElementById("placeholder").innerHTML=randword.nom; //starting with blank field
     if (displaynom) { //displays case if display [case] is true
       quizwords.push(randword.nom); //<br> works - it is formatted like the ${}
     }
