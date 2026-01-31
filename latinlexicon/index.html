@@ -19,10 +19,9 @@
         <input type="checkbox" id="dat" name="dat" value="dat">Dative</input>
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
-        <button id="quiz" onclick="quiz()">Quiz!</button>
-        <button id="next" onclick="changevalue()">Next!</button>
+        <button id="next" onclick="changequestion()">Next!</button>
 
-        <button type="button" onclick="start()">Start!<button><br>
+        <button type="button" onclick="quiz()">Start!<button><br>
         <input type="text" id="answer" name="answer" value=""></input>
 
     </body>
@@ -260,11 +259,6 @@ function random() {
 }
 
 let randword = random();
-
-function changevalue() {
-  randword = random();
-  quiz();
-}
  
 let displaynom = false; //initial value of display [case] is false
 let displayvoc = false;
@@ -298,7 +292,7 @@ document.getElementById("abl").onclick = function() {
     displayabl = !displayabl;
 }
 
-function initialisequiz() {
+function returnquizwords() {
   let quizwords = [];
   if (displaynom) {quizwords.push(randword.nom);}
   if (displayvoc) {quizwords.push(randword.voc);}
@@ -315,14 +309,13 @@ function initialisequiz() {
   return quizwords
 }
 
-function start() {
-  quiz(initialisequiz());
+function quiz() {
+  question(returnquizwords());
 }
 
-async function quiz(quizwords) {
+function question(quizwords) {
     
-    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
-    
+    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
 }
 
 </script>
