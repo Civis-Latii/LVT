@@ -258,7 +258,6 @@ function random() {
   return wordlist[Math.floor(Math.random() * wordlist.length)]; //returns random word
 }
 
-let randword = random();
  
 let displaynom = false; //initial value of display [case] is false
 let displayvoc = false;
@@ -293,6 +292,7 @@ document.getElementById("abl").onclick = function() {
 }
 
 function returnquizwords() {
+  let randword = random();
   let quizwords = [];
   if (displaynom) {quizwords.push(randword.nom);}
   if (displayvoc) {quizwords.push(randword.voc);}
