@@ -295,7 +295,9 @@ for (let i=0;i<words.length;i+=4) {
   wordlist.push(word);
 }
 
-
+wordlist[wordlist.findIndex(obj => obj.nom === "domus")].abl="domo";
+wordlist[wordlist.findIndex(obj => obj.nom === "domus")].accpl="domos";
+wordlist[wordlist.findIndex(obj => obj.nom === "filius")].voc="fili";
 
 function random() {
   return wordlist[Math.floor(Math.random() * wordlist.length)]; //returns random word
