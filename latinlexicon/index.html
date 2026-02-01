@@ -2,7 +2,7 @@
 <html>
   <title>Latinlexicon</title>
     <body>
-       <p id="placeholder">Placeholder</p>
+       <p id="placeholder">Placeholder</p> 
         <style>
             body{
                 background-image: url('roman background.png');
@@ -21,50 +21,21 @@
 
         <button type="button" onclick="quiz()">Next!</button><br>
 
-        <button type="button" onclick="function setnom() {
-          Case = 'nom';
-        }">Nominative</button>
+        <button type="button" id="setnom">Nominative</button>
+        <button type="button" id="setvoc">Vocative</button>
+        <button type="button" id="setacc">Accusative</button>
+        <button type="button" id="setgen">Genitive</button>
+        <button type="button" id="setdat">Dative</button>
+        <button type="button" id="setabl">Ablative</button>
 
-        <button type="button" onclick="function setvoc() {
-          Case = 'voc';
-        }">Vocative</button>
+        <button type="button" id="setsg">Singular</button>
+        <button type="button" id="setpl">Plural</button>
 
-        <button type="button" onclick="function setacc() {
-          Case = 'acc';
-        }">Accusative</button>
-
-        <button type="button" onclick="function setgen() {
-          Case = 'gen';
-        }">Genitive</button>
-
-        <button type="button" onclick="function setdat() {
-          Case = 'dat';
-        }">Dative</button>
-
-        <button type="button" onclick="function setabl() {
-          Case = 'abl';
-        }">Ablative</button><br>
-
-        <button type="button" onclick="function setsg() {
-          Num = 'sg';
-        }">Singular</button>
-
-        <button type="button" onclick="function setpl() {
-          Num = 'pl';
-        }">Plural</button><br>
-
-        <button type="button" onclick="function setfem() {
-          Gender = 'f';
-        }">Feminine</button>
-
-        <button type="button" onclick="function setmasc() {
-          Gender = 'm';
-        }">Masculine</button>
-
-        <button type="button" onclick="function setneut() {
-          Gender = 'n';
-        }">Neuter</button>
-
+        <button type="button" id="setmasc">Masculine</button>
+        <button type="button" id="setfem">Feminine</button>
+        <button type="button" id="setneut">Neuter</button>
+        
+        <p id="displaystuff">Placeholder</p>
     </body>
 </html>
 
@@ -356,7 +327,7 @@ function returnquizwords() {
   if (displaygenpl) {quizwords.push(randword.genpl);}
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
-  return quizwords
+  return quizwords;
 }
 
 function quiz() {
@@ -367,5 +338,22 @@ function question(quizwords) {
     
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
 }
+
+
+document.getElementById("setnom").onclick = function() {Case = "nom";}
+document.getElementById("setvoc").onclick = function() {Case = "voc";}
+document.getElementById("setacc").onclick = function() {Case = "acc";}
+document.getElementById("setgen").onclick = function() {Case = "gen";}
+document.getElementById("setdat").onclick = function() {Case = "dat";}
+document.getElementById("setabl").onclick = function() {Case = "abl";}
+
+document.getElementById("setsg").onclick = function() {Num = "sg";}
+document.getElementById("setpl").onclick = function() {Num = "pl";}
+
+document.getElementById("setfem").onclick = function() {Gender = 'f';}
+document.getElementById("setmasc").onclick = function() {Gender = 'm';}
+document.getElementById("setneut").onclick = function() { Gender = 'n';}
+
+document.getElementById("displaystuff").innerHTML=Case+" "+Num+" "+Gender
 
 </script>
