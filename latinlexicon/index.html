@@ -22,7 +22,52 @@
         <button id="next" onclick="changequestion()">Next!</button>
 
         <button type="button" onclick="quiz()">Start!<button><br>
-        <input type="text" id="answer" name="answer" value=""></input>
+        <input type="text" id="answer" name="answer" value=""></input><br>
+
+
+        <button type="button" onclick="function setnom() {
+          Case = 'nom';
+        }">Nominative</button>
+
+        <button type="button" onclick="function setvoc() {
+          Case = 'voc';
+        }">Vocative</button>
+
+        <button type="button" onclick="function setacc() {
+          Case = 'acc';
+        }">Accusative</button>
+
+        <button type="button" onclick="function setgen() {
+          Case = 'gen';
+        }">Genitive</button>
+
+        <button type="button" onclick="function setdat() {
+          Case = 'dat';
+        }">Dative</button>
+
+        <button type="button" onclick="function setabl() {
+          Case = 'abl';
+        }">Ablative</button>
+
+        <button type="button" onclick="function setsg() {
+          Num = 'sg';
+        }">Singular</button>
+
+        <button type="button" onclick="function setpl() {
+          Num = 'pl';
+        }">Plural</button>
+
+        <button type="button" onclick="function setfem() {
+          Gender = 'f';
+        }">Feminine</button>
+
+        <button type="button" onclick="function setmasc() {
+          Gender = 'm';
+        }">Masculine</button>
+
+        <button type="button" onclick="function setneut() {
+          Gender = 'n';
+        }">Neuter</button>
 
     </body>
 </html>
@@ -317,6 +362,7 @@ function question(quizwords) {
     
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
 }
+
 
 
 </script>
