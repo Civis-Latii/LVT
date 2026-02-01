@@ -312,7 +312,9 @@ document.getElementById("abl").addEventListener("click", function() {
     displayabl = !displayabl;
 })
 
-function returnquizwords() {
+
+
+function quiz() {
   let randword = random();
   let quizwords = [];
   if (displaynom) {quizwords.push(randword.nom);}
@@ -327,18 +329,14 @@ function returnquizwords() {
   if (displaygenpl) {quizwords.push(randword.genpl);}
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
-  return [quizwords,randword];
-}
-
-function quiz() {
-  question(returnquizwords());
+  question(quizwords,randword);
 }
 
 
 function question(quizwords) {
-    let word = quizwords[0][Math.floor(Math.random() * quizwords.length)];
-    document.getElementById("placeholder").innerHTML=randwordform;
-    let randword = quizwords[1];
+    let word = quizwords[Math.floor(Math.random() * quizwords.length)];
+    document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
+
     if (word === randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Correct!";
 }
