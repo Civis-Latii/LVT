@@ -297,6 +297,8 @@ for (let i=0;i<words.length;i+=4) {
   wordlist.push(word);
 }
 
+
+
 function random() {
   return wordlist[Math.floor(Math.random() * wordlist.length)]; //returns random word
 }
@@ -314,6 +316,11 @@ let displayaccpl = false;
 let displaygenpl = false;
 let displaydatpl = false;
 let displayablpl = false;
+
+let Case = "";
+let Num = "";
+let Gender = "";
+
 
 document.getElementById("nom").onclick = function() { //when checkbox clicked toggle value of case
     displaynom = !displaynom;
@@ -360,9 +367,5 @@ function question(quizwords) {
     
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];   
 }
-
-let Case = "";
-let Num = "";
-let Gender = "";
 
 </script>
