@@ -337,7 +337,7 @@ function question(quizwords) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
 
-    if (word === randword[Case+Num]) {
+    if (word == randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Correct!";
 }
     else {
