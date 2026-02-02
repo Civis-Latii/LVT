@@ -337,17 +337,11 @@ function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=quizwords[Math.floor(Math.random() * quizwords.length)];
 
-    if (Num == "sg") { //preventing the nonexistent "[case]sg" property beig called
+    if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
       Num = "";
     }
-
     if (word === randword[Case+Num]) {
-      if (Gender === randword[Gender]) {
-        document.getElementById("displaystuff").innerHTML="Correct!";
-      }
-      else {
-        document.getElementById("displaystuff").innerHTML="Correct Case & Num - Incorrect Gender!";
-      }
+      document.getElementById("displaystuff").innerHTML="Correct!";
     }
     else if (word !== randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Incorrect!";
