@@ -342,10 +342,18 @@ function question(quizwords,randword) {
     }
 
     if (word === randword[Case+Num]) {
-      document.getElementById("displaystuff").innerHTML="Correct!";
-}
-    else {
+      if (Gender === randword[Gender]) {
+        document.getElementById("displaystuff").innerHTML="Correct!";
+      }
+      else {
+        document.getElementById("displaystuff").innerHTML="Correct Case & Num - Incorrect Gender!";
+      }
+    }
+    else if (word !== randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Incorrect!";
+    }
+    else {
+      document.getElementById("displaystuff").innerHTML="Select Case, Number, and Gender!";
     }
 }
 
