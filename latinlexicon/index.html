@@ -288,7 +288,7 @@ let displaygenpl = false;
 let displaydatpl = false;
 let displayablpl = false;
 
-let Case = "a";
+let Case = "";
 let Num = "";
 let Gender = "";
 
@@ -340,7 +340,7 @@ function question(quizwords,randword) {
     if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
       Num = "";
     }
-    if (word === randword[Case+Num]) {
+    if (word === randword[Case+Num] && Gender === randword[gender]) {
       document.getElementById("displaystuff").innerHTML="Correct!";
     }
     else if (word !== randword[Case+Num]) {
