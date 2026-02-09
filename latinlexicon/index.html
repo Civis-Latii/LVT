@@ -329,7 +329,19 @@ function quiz() {
   if (displaygenpl) {quizwords.push(randword.genpl);}
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
-  question(quizwords,randword);
+  let word = quizwords[Math.floor(Math.random() * quizwords.length)];
+    document.getElementById("placeholder").innerHTML=word;
+
+    if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
+      Num = "";
+    }
+    if (word == randword[Case+Num] && Gender == randword.gender){
+      document.getElementById("displaystuff").innerHTML="Correct!";
+    }
+    else if (word !== randword[Case+Num]) {
+      document.getElementById("displaystuff").innerHTML="Incorrect!";
+     }
+ // question(quizwords,randword);
 }
 
 
@@ -370,7 +382,7 @@ document.getElementById("setneut").addEventListener("click", function() {
   Gender = 'n';
 });
 
-function question(quizwords,randword) {
+/*function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
 
@@ -383,6 +395,6 @@ function question(quizwords,randword) {
     else if (word !== randword[Case+Num]) {
       document.getElementById("displaystuff").innerHTML="Incorrect!";
      }
-  }
+  }*/
 
 </script>
