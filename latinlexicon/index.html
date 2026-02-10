@@ -307,28 +307,6 @@ document.getElementById("abl").addEventListener("click", function() {
 })
 
 
-
-function quiz() {
-  let randword = random();
-  let quizwords = [];
-  if (displaynomsg) {quizwords.push(randword.nomsg);}
-  if (displayvocsg) {quizwords.push(randword.vocsg);}
-  if (displayaccsg) {quizwords.push(randword.accsg);}
-  if (displaygensg) {quizwords.push(randword.gensg);}
-  if (displaydatsg) {quizwords.push(randword.datsg);}
-  if (displayablsg) {quizwords.push(randword.ablsg);}
-  if (displaynompl) {quizwords.push(randword.nompl);}
-  if (displayvocpl) {quizwords.push(randword.vocpl);}
-  if (displayaccpl) {quizwords.push(randword.accpl);}
-  if (displaygenpl) {quizwords.push(randword.genpl);}
-  if (displaydatpl) {quizwords.push(randword.datpl);}
-  if (displayablpl) {quizwords.push(randword.ablpl);}
-
-  question(quizwords,randword);
-}
-
-
-
 document.getElementById("setnom").addEventListener("click", function() {
   Case = "nom";
 });
@@ -365,12 +343,32 @@ document.getElementById("neut").addEventListener("click", function() {
   Gender = 'n';
 });
 
+function quiz() {
+  let randword = random();
+  let quizwords = [];
+  if (displaynomsg) {quizwords.push(randword.nomsg);}
+  if (displayvocsg) {quizwords.push(randword.vocsg);}
+  if (displayaccsg) {quizwords.push(randword.accsg);}
+  if (displaygensg) {quizwords.push(randword.gensg);}
+  if (displaydatsg) {quizwords.push(randword.datsg);}
+  if (displayablsg) {quizwords.push(randword.ablsg);}
+  if (displaynompl) {quizwords.push(randword.nompl);}
+  if (displayvocpl) {quizwords.push(randword.vocpl);}
+  if (displayaccpl) {quizwords.push(randword.accpl);}
+  if (displaygenpl) {quizwords.push(randword.genpl);}
+  if (displaydatpl) {quizwords.push(randword.datpl);}
+  if (displayablpl) {quizwords.push(randword.ablpl);}
+
+  
+  question(quizwords,randword);
+}
+
 function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
-
+//I think that this below only triggers when you go onto 
     if (randword.gender !== Gender || word !== randword[Case+Num]){
-      document.getElementById("displaystuff").innerHTML="Incorrect!";
+      document.getElementById("displaystuff").innerHTML=word;
     }
     else {
       document.getElementById("displaystuff").innerHTML="Correct!";
