@@ -20,7 +20,7 @@
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
         <button type="button" onclick="quiz()">Next!</button>
-        <button type="button" onclick="checkans()">Check Answer!</button><br>
+        <button type="button" id = "checkans">Check Answer!</button><br>
 
         <button type="button" id="setnom">Nominative</button>
         <button type="button" id="setvoc">Vocative</button>
@@ -345,6 +345,7 @@ document.getElementById("neut").addEventListener("click", function() {
 });
 
 function quiz() {
+  let shouldcheckans = false
   let randword = random();
   let quizwords = [];
   if (displaynomsg) {quizwords.push(randword.nomsg);}
@@ -362,7 +363,15 @@ function quiz() {
 
   let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
+
+  if (shouldcheckans) {
+    checkans(quizwords,randword)
+  }
 }
+
+document.getElementById("checkans").addEventListener("click",function() {
+  let shouldcheckans = true
+})
 
 function checkans(quizwords,randword) {
     
