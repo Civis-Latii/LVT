@@ -31,9 +31,9 @@
         <button type="button" id="setsg">Singular</button>
         <button type="button" id="setpl">Plural</button><br>
 
-        <button type="button" id="setmasc">Masculine</button>
-        <button type="button" id="setfem">Feminine</button>
-        <button type="button" id="setneut">Neuter</button><br>
+        <button type="button" id="masc">Masculine</button>
+        <button type="button" id="fem">Feminine</button>
+        <button type="button" id="neut">Neuter</button><br>
         
         <p id="displaystuff">Placeholder</p>
     </body>
@@ -355,13 +355,13 @@ document.getElementById("setpl").addEventListener("click", function() {
   Num = "pl";
 });
 
-document.getElementById("setfem").addEventListener("click", function() {
+document.getElementById("fem").addEventListener("click", function() {
   Gender = 'f';
 });
-document.getElementById("setmasc").addEventListener("click", function() {
+document.getElementById("masc").addEventListener("click", function() {
   Gender = 'm';
 });
-document.getElementById("setneut").addEventListener("click", function() {
+document.getElementById("neut").addEventListener("click", function() {
   Gender = 'n';
 });
 
