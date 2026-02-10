@@ -2,7 +2,7 @@
 <html>
   <title>Latinlexicon</title>
     <body>
-       <p id="PLACEholder">Place holder</p> 
+       <p id="placeholder">Place holder</p> 
         <style>
             body{
                 background-image: url('roman background.png');
@@ -54,13 +54,13 @@ class Latinword {
         let stem = "";
         let iumwordslist = ["corporis","temporis","vulneris","itineris","artis","montis","noctis","partis","principis","urbis","civis","hostis","navis","maris"];
         if (gen.slice(-4)=="arum") { //1st plural only
-          let stem=this.gen.slice(0,-4);
-          this.nom="-";
-          this.voc="-";
-          this.acc="-";
-          this.gen="-";
-          this.dat="-";
-          this.abl="-";
+          let stem=gen.slice(0,-4);
+          this.nomsg="-";
+          this.vocsg="-";
+          this.accsg="-";
+          this.gensg="-";
+          this.datsg="-";
+          this.ablsg="-";
           //no 1st neuter
           this.nompl=nom;
           this.vocpl=nom;
@@ -71,12 +71,12 @@ class Latinword {
         }
           else if (gen.slice(-4)=="orum") { //2nd plural only
           stem=gen.slice(0,-4);
-          this.nom="-";
-          this.voc="-";
-          this.acc="-";
-          this.gen="-";
-          this.dat="-";
-          this.abl="-";
+          this.nomsg="-";
+          this.vocsg="-";
+          this.accsg="-";
+          this.gensg="-";
+          this.datsg="-";
+          this.ablsg="-";
           
           this.nompl=nom;
           this.vocpl=nom;
@@ -92,12 +92,12 @@ class Latinword {
         }
           else if (gen.slice(-2)=="um") { //3rd plural only
           stem=gen.slice(0,-2);
-          this.nom="-";
-          this.voc="-";
-          this.acc="-";
-          this.gen="-";
-          this.dat="-";
-          this.abl="-";
+          this.nomsg="-";
+          this.vocsg="-";
+          this.accsg="-";
+          this.gensg="-";
+          this.datsg="-";
+          this.ablsg="-";
   
           this.nompl=nom;
           this.vocpl=nom;
@@ -113,12 +113,12 @@ class Latinword {
         }
         else if (gen.slice(-2)=="uum") { //4th plural only
           stem=gen.slice(0,-2);
-          this.nom="-";
-          this.voc="-";
-          this.acc="-";
-          this.gen="-";
-          this.dat="-";
-          this.abl="-";
+          this.nomsg="-";
+          this.vocsg="-";
+          this.accsg="-";
+          this.gensg="-";
+          this.datsg="-";
+          this.ablsg="-";
   
           this.nompl=nom; //4th dec. has nom and acc same, regardless of gender
           this.vocpl=nom;
@@ -131,12 +131,12 @@ class Latinword {
 
         else if (gen.slice(-2)=="ae") { //1st singular
           stem=gen.slice(0,-2);
-          this.nom=nom;
-          this.voc=nom;
-          this.acc=stem+"am";
-          this.gen=gen;
-          this.dat=stem+"ae";
-          this.abl=stem+"a";
+          this.nomsg=nom;
+          this.vocsg=nom;
+          this.accsg=stem+"am";
+          this.gensg=gen;
+          this.datsg=stem+"ae";
+          this.ablsg=stem+"a";
           //no 1st neuter
           this.nompl=stem+"ae";
           this.vocpl=stem+"ae";
@@ -147,26 +147,26 @@ class Latinword {
         }
         else if (gen.slice(-1)=="i" && !(gen.slice(-2)=="ei")) { //2nd singular, making sure does not apply to 5th dec. "ei"
           stem=gen.slice(0,-1);
-          this.nom=nom;
+          this.nomsg=nom;
           if (gender=="n") { //2nd neuter
-            this.voc=nom;
-            this.acc=nom;
+            this.vocsg=nom;
+            this.accsg=nom;
             
             this.nompl=stem+"a";
             this.vocpl=stem+"a";
             this.accpl=stem+"a";
         }
           else {
-            this.voc=stem+"e";
-            this.acc=stem+"um";
+            this.vocsg=stem+"e";
+            this.accsg=stem+"um";
             
             this.nompl=stem+"i";
             this.vocpl=stem+"i";
-            this.accpl=stem+"i";
+            this.accpl=stem+"os";
         }
-          this.gen=gen;
-          this.dat=stem+"o";
-          this.abl=stem+"o";
+          this.gensg=gen;
+          this.datsg=stem+"o";
+          this.ablsg=stem+"o";
         
           this.genpl=stem+"orum";
           this.datpl=stem+"is";
@@ -174,32 +174,26 @@ class Latinword {
         }
         else if (gen.slice(-2)=="is") { //3rd singular
           stem=gen.slice(0,-2);
-          this.nom=nom;
-          this.voc=nom;
+          this.nomsg=nom;
+          this.vocsg=nom;
           if (gender=="n") { //3rd neuter
-            this.acc=nom;
+            this.accsg=nom;
   
             this.nompl=stem+"a";
             this.vocpl=stem+"a";
             this.accpl=stem+"a";
         }
           else {
-            this.acc=stem+"em";
+            this.accsg=stem+"em";
             
             this.nompl=stem+"es";
             this.vocpl=stem+"es";
             this.accpl=stem+"es";
         }
-          this.gen=gen;
-          this.dat=stem+"i";
-          this.abl=stem+"e";
+          this.gensg=gen;
+          this.datsg=stem+"i";
+          this.ablsg=stem+"e";
 
-          if (iumwordslist.includes(gen)) {
-            this.genpl=stem+"ium";
-          }
-          else {
-            this.genpl=stem;
-          }
           if (iumwordslist.includes(gen)) { //accounting for ium words
             this.genpl=stem+"ium";
           }
@@ -211,27 +205,27 @@ class Latinword {
         }
         else if (gen.slice(-2)=="us") { //4th singular
           stem=gen.slice(0,-2);
-          this.nom=nom;
-          this.voc=nom;
+          this.nomsg=nom;
+          this.vocsg=nom;
           if (gender=="n") { //4th neuter
-            this.acc=nom;
-            this.dat=nom;
-            this.abl=nom;
+            this.accsg=nom;
+            this.datsg=nom;
+            this.ablsg=nom;
   
             this.nompl=stem+"ua";
             this.vocpl=stem+"ua";
             this.accpl=stem+"ua";
         }
           else {
-            this.acc=stem+"um";
-            this.dat=stem+"ui";
-            this.abl=stem+"u";
+            this.accsg=stem+"um";
+            this.datsg=stem+"ui";
+            this.ablsg=stem+"u";
   
             this.nompl=nom;
             this.vocpl=nom;
             this.accpl=nom;
         }
-          this.gen=gen;
+          this.gensg=gen;
   
           this.genpl=stem+"uum";
           this.datpl=stem+"ibus";
@@ -239,12 +233,12 @@ class Latinword {
         }
         else if (gen.slice(-2)=="ei") { //5th singular
           let stem=gen.slice(0,-2);
-          this.nom=nom;
-          this.voc=nom;
-          this.acc=nom;
-          this.gen=gen;
-          this.dat=stem+"ei";
-          this.abl=stem+"e";
+          this.nomsg=nom;
+          this.vocsg=nom;
+          this.accsg=nom;
+          this.gensg=gen;
+          this.datsg=stem+"ei";
+          this.ablsg=stem+"e";
           //no 5th neuter
           this.nompl=stem+"es";
           this.vocpl=stem+"es";
@@ -266,21 +260,21 @@ for (let i=0;i<words.length;i+=4) {
   wordlist.push(word);
 }
 
-wordlist[wordlist.findIndex(obj => obj.nom === "domus")].abl="domo";
-wordlist[wordlist.findIndex(obj => obj.nom === "domus")].accpl="domos";
-wordlist[wordlist.findIndex(obj => obj.nom === "filius")].voc="fili";
+wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].ablsg="domo";
+wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].accpl="domos";
+wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili";
 
 function random() {
   return wordlist[Math.floor(Math.random() * wordlist.length)]; //returns random word
 }
 
  
-let displaynom = false; //initial value of display [case] is false
-let displayvoc = false;
-let displayacc = false;
-let displaygen = false;
-let displaydat = false;
-let displayabl = false;
+let displaynomsg = false; //initial value of display [case] is false
+let displayvocsg = false;
+let displayaccsg = false;
+let displaygensg = false;
+let displaydatsg = false;
+let displayablsg = false;
 let displaynompl = false;
 let displayvocpl = false;
 let displayaccpl = false;
@@ -294,22 +288,22 @@ let Gender = "";
 
 
 document.getElementById("nom").addEventListener("click", function() { //when checkbox clicked toggle value of case
-    displaynom = !displaynom;
+    displaynomsg = !displaynomsg
 })
 document.getElementById("voc").addEventListener("click", function() {
-    displayvoc = !displayvoc;
+    displayvocsg = !displayvocsg;
 })
 document.getElementById("acc").addEventListener("click", function() {
-    displayacc = !displayacc;
+    displayaccsg = !displayaccsg;
 })
 document.getElementById("gen").addEventListener("click", function() {
-    displaygen = !displaygen;
+    displaygensg = !displaygensg;
 })
 document.getElementById("dat").addEventListener("click", function() {
-    displaydat = !displaydat;
+    displaydatsg = !displaydatsg;
 })
 document.getElementById("abl").addEventListener("click", function() {
-    displayabl = !displayabl;
+    displayablsg = !displayablsg;
 })
 
 
@@ -317,31 +311,20 @@ document.getElementById("abl").addEventListener("click", function() {
 function quiz() {
   let randword = random();
   let quizwords = [];
-  if (displaynom) {quizwords.push(randword.nom);}
-  if (displayvoc) {quizwords.push(randword.voc);}
-  if (displayacc) {quizwords.push(randword.acc);}
-  if (displaygen) {quizwords.push(randword.gen);}
-  if (displaydat) {quizwords.push(randword.dat);}
-  if (displayabl) {quizwords.push(randword.abl);}
+  if (displaynomsg) {quizwords.push(randword.nomsg);}
+  if (displayvocsg) {quizwords.push(randword.vocsg);}
+  if (displayaccsg) {quizwords.push(randword.accsg);}
+  if (displaygensg) {quizwords.push(randword.gensg);}
+  if (displaydatsg) {quizwords.push(randword.datsg);}
+  if (displayablsg) {quizwords.push(randword.ablsg);}
   if (displaynompl) {quizwords.push(randword.nompl);}
   if (displayvocpl) {quizwords.push(randword.vocpl);}
   if (displayaccpl) {quizwords.push(randword.accpl);}
   if (displaygenpl) {quizwords.push(randword.genpl);}
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
-  let word = quizwords[Math.floor(Math.random() * quizwords.length)];
-    document.getElementById("placeholder").innerHTML=word;
 
-    if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
-      Num = "";
-    }
-    if (word == randword[Case+Num] && Gender == randword.gender){
-      document.getElementById("displaystuff").innerHTML="Correct!";
-    }
-    else if (word !== randword[Case+Num]) {
-      document.getElementById("displaystuff").innerHTML="Incorrect!";
-     }
- // question(quizwords,randword);
+  question(quizwords,randword);
 }
 
 
@@ -382,19 +365,16 @@ document.getElementById("setneut").addEventListener("click", function() {
   Gender = 'n';
 });
 
-/*function question(quizwords,randword) {
+function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
 
-    if (Num == "sg") { //preventing the nonexistent "[case]sg" property being called
-      Num = "";
+    if (randword.gender !== Gender || word !== randword[Case+Num]){
+      document.getElementById("displaystuff").innerHTML="InCorrect!";
     }
-    if (word == randword[Case+Num] && Gender == randword.gender){
-      document.getElementById("displaystuff").innerHTML="Correct!";
-    }
-    else if (word !== randword[Case+Num]) {
-      document.getElementById("displaystuff").innerHTML="Incorrect!";
+    else {
+      document.getElementById("displaystuff").innerHTML="correct!";
      }
-  }*/
+  }
 
 </script>
