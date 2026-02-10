@@ -20,6 +20,7 @@
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
         <button type="button" onclick="quiz()">Next!</button><br>
+        <button type="button" onclick="checkans()">Check Answer!</button>
 
         <button type="button" id="setnom">Nominative</button>
         <button type="button" id="setvoc">Vocative</button>
@@ -359,16 +360,14 @@ function quiz() {
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
 
-  
-  question(quizwords,randword);
 }
 
-function question(quizwords,randword) {
+function checkans(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
 //I think that this below only triggers when you
     if (randword.gender !== Gender || word !== randword[Case+Num]){
-      document.getElementById("displaystuff").innerHTML=word;
+      document.getElementById("displaystuff").innerHTML="Incorrect!";
     }
     else {
       document.getElementById("displaystuff").innerHTML="Correct!";
