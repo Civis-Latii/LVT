@@ -19,8 +19,8 @@
         <input type="checkbox" id="dat" name="dat" value="dat">Dative</input>
         <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
 
-        <button type="button" onclick="quiz()">Next!</button>
-        <button type="button" id = "checkans">Check Answer!</button><br>
+        <button type="button" id="quiz">Next!</button>
+        <button type="button" id="checkans">Check Answer!</button><br>
 
         <button type="button" id="setnom">Nominative</button>
         <button type="button" id="setvoc">Vocative</button>
@@ -344,8 +344,10 @@ document.getElementById("neut").addEventListener("click", function() {
   Gender = 'n';
 });
 
+let currentword = null;
+let currentform = null;
+
 function quiz() {
-  let shouldcheckans = false
   let randword = random();
   let quizwords = [];
   if (displaynomsg) {quizwords.push(randword.nomsg);}
@@ -362,16 +364,15 @@ function quiz() {
   if (displayablpl) {quizwords.push(randword.ablpl);}
 
   let word = quizwords[Math.floor(Math.random() * quizwords.length)];
-    document.getElementById("placeholder").innerHTML=word;
 
-  if (shouldcheckans) {
-    checkans(quizwords,randword)
-  }
+  currentword = randword
+  currentform = word
+
+  document.getElementById("placeholder").innerHTML=word;
+
 }
 
-document.getElementById("checkans").addEventListener("click",function() {
-  let shouldcheckans = true
-})
+document.getElementById("checkans").addEventListener("click",checkans(currentword,currentform))
 
 function checkans(quizwords,randword) {
     
