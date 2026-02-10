@@ -360,12 +360,12 @@ function quiz() {
   if (displaydatpl) {quizwords.push(randword.datpl);}
   if (displayablpl) {quizwords.push(randword.ablpl);}
 
+  let word = quizwords[Math.floor(Math.random() * quizwords.length)];
+    document.getElementById("placeholder").innerHTML=word;
 }
 
 function checkans(quizwords,randword) {
-    let word = quizwords[Math.floor(Math.random() * quizwords.length)];
-    document.getElementById("placeholder").innerHTML=word;
-//I think that this below only triggers when you
+    
     if (randword.gender !== Gender || word !== randword[Case+Num]){
       document.getElementById("displaystuff").innerHTML="Incorrect!";
     }
