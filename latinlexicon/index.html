@@ -366,7 +366,7 @@ function quiz() {
 function question(quizwords,randword) {
     let word = quizwords[Math.floor(Math.random() * quizwords.length)];
     document.getElementById("placeholder").innerHTML=word;
-//I think that this below only triggers when you go onto 
+//I think that this below only triggers when you
     if (randword.gender !== Gender || word !== randword[Case+Num]){
       document.getElementById("displaystuff").innerHTML=word;
     }
