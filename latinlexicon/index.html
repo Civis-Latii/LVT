@@ -352,7 +352,7 @@ document.getElementById("neut").addEventListener("click", function() {
 });
 
 let currentword = null;
-let currentform = null;
+let currentform = "";
 
 function quiz() {
   let randword = random();
@@ -379,14 +379,22 @@ function quiz() {
 
 }
 
+document.getElementById("quiz").addEventListener("click",function(){
+  quiz()
+});
+
+
 document.getElementById("checkans").addEventListener("click",function(){
-  quiz();
+  if (!currentword) {
+    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
+    return;
+  }
   checkans(currentword,currentform);
 });
 
-function checkans(quizwords,randword) {
+function checkans(randomword,randomform) {
     
-    if (randword.gender !== Gender || word !== randword[Case+Num]){
+    if (randomword.gender !== Gender || randomform !== randomword[Case+Num]){
       document.getElementById("displaystuff").innerHTML="Incorrect!";
     }
     else {
