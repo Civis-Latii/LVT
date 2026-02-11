@@ -2,7 +2,7 @@
 <html>
   <title>Latinlexicon</title>
     <body>
-       <p id="placeholder"></p> 
+       <p id="placeholder"> </p> 
         <style>
             body{
                 background-image: url('roman background.png');
@@ -360,6 +360,7 @@ let currentword = null;
 let currentform = "";
 
 function quiz() {
+  document.getElementById("displaystuff").innerHTML=""
   let randword = random();
   let quizwords = [];
   if (displaynomsg) {quizwords.push(randword.nomsg);}
