@@ -179,11 +179,18 @@ class Latinword {
           this.vocsg=nom;
           if (gender=="n") { //3rd neuter
             this.accsg=nom;
-  
-            this.nompl=stem+"a";
-            this.vocpl=stem+"a";
-            this.accpl=stem+"a";
-        }
+            if (nom=="mare") { //accounting for true perfect i stems
+              this.nompl=stem+"ia";
+              this.vocpl=stem+"ia";
+              this.accpl=stem+"ia";  
+            }
+            else {
+              this.nompl=stem+"a";
+              this.vocpl=stem+"a";
+              this.accpl=stem+"a";
+
+            }
+          }
           else {
             this.accsg=stem+"em";
             
