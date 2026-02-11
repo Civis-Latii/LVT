@@ -365,17 +365,17 @@ function quiz() {
 
   let word = quizwords[Math.floor(Math.random() * quizwords.length)];
 
-  currentword = randword
-  currentform = word
+  currentword = randword;
+  currentform = word;
 
   document.getElementById("placeholder").innerHTML=word;
 
 }
 
 document.getElementById("checkans").addEventListener("click",function(){
-  quiz()
-  checkans(currentword,currentform)
-})
+  quiz();
+  checkans(currentword,currentform);
+});
 
 function checkans(quizwords,randword) {
     
