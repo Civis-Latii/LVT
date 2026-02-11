@@ -395,10 +395,6 @@ function checkans(randomword,randomform) {
   }
 
 document.getElementById("quiz").addEventListener("click",function(){
-  if (!currentword) {
-    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
-    return;
-  }
   quiz()
 });
 
