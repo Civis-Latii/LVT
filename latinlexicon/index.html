@@ -54,7 +54,7 @@ class Latinword {
 
         let stem = "";
         let iumwordslist = ["corporis","temporis","vulneris","itineris","artis","montis","noctis","partis","principis","urbis","civis","hostis","navis","maris"];
-        if (gen.slice(-4)=="arum") { //1st plural only
+        /*if (gen.slice(-4)=="arum") { //1st plural only
           let stem=gen.slice(0,-4);
           this.nomsg="-";
           this.vocsg="-";
@@ -70,7 +70,7 @@ class Latinword {
           this.datpl=stem+"is";
           this.ablpl=stem+"is";
         }
-          else if (gen.slice(-4)=="orum") { //2nd plural only
+          else */if (gen.slice(-4)=="orum") { //2nd plural only
           stem=gen.slice(0,-4);
           this.nomsg="-";
           this.vocsg="-";
@@ -91,7 +91,7 @@ class Latinword {
           this.datpl=stem+"is";
           this.ablpl=stem+"is";
         }
-          else if (gen.slice(-2)=="um") { //3rd plural only
+         /* else if (gen.slice(-2)=="um") { //3rd plural only
           stem=gen.slice(0,-2);
           this.nomsg="-";
           this.vocsg="-";
@@ -256,7 +256,7 @@ class Latinword {
           this.ablpl=stem+"ebus";
         }
         }
-      }
+      }*/
 
 
 let wordlist = []
