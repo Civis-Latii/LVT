@@ -2,61 +2,130 @@
 <!DOCTYPE html>
 <html>
   <title>Latinlexicon</title>
-  <h1>Welcome to Latinlexicon</h1>
+  <h1>Welcome to Latinlexicon!</h1>
     <body>
-       <p id="placeholder"> </p> 
-        <style>
-            body{
-                background-image: url('roman background.png');
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-size: cover;
-              }
-        </style>
-        <style>
-          h1 {
-  color: white;
-  text-align: center;
-}
-        </style>
-
-        <input type="checkbox" id="nom" name="nom" value="nom">Nominative</input>
-        <input type="checkbox" id="voc" name="voc" value="voc">Vocative</input>
-        <input type="checkbox" id="acc" name="acc" value="acc">Accusative</input>
-        <input type="checkbox" id="gen" name="gen" value="gen">Genitive</input>
-        <input type="checkbox" id="dat" name="dat" value="dat">Dative</input>
-        <input type="checkbox" id="abl" name="abl" value="abl">Ablative</input><br>
+       <p id="quizword"></p> 
+        <input class="casecheckboxes" type="checkbox" id="nom" ></input>
+        <label for="nom">Nominative</label>
+        <input class="casecheckboxes" type="checkbox" id="voc" ></input>
+        <label for="voc">Vocative</label>
+        <input class="casecheckboxes" type="checkbox" id="acc" ></input>
+        <label for="acc">Accusative</label>
+        <input class="casecheckboxes" type="checkbox" id="gen" ></input>
+        <label for="gen">Genitive</label>
+        <input class="casecheckboxes" type="checkbox" id="dat" ></input>
+        <label for="dat">Dative</label>
+        <input class="casecheckboxes" type="checkbox" id="abl" ></input>
+        <label for="abl">Ablative</label><br>
 
         <button type="button" id="quiz">Next!</button>
-        <button type="button" id="checkans">Check Answer!</button><br>
+        <button type="button" id="checkans">Check Answer</button><br>
 
-        <button type="button" id="setnom">Nominative</button>
-        <button type="button" id="setvoc">Vocative</button>
-        <button type="button" id="setacc">Accusative</button>
-        <button type="button" id="setgen">Genitive</button>
-        <button type="button" id="setdat">Dative</button>
-        <button type="button" id="setabl">Ablative</button><br>
+        <button class="cases" type="button" id="setnom">Nominative</button>
+        <button class="cases" type="button" id="setvoc">Vocative</button>
+        <button class="cases" type="button" id="setacc">Accusative</button>
+        <button class="cases" type="button" id="setgen">Genitive</button>
+        <button class="cases" type="button" id="setdat">Dative</button>
+        <button class="cases" type="button" id="setabl">Ablative</button><br>
 
-        <button type="button" id="setsg">Singular</button>
-        <button type="button" id="setpl">Plural</button><br>
+        <button class="numbers" type="button" id="setsg">Singular</button>
+        <button class="numbers" type="button" id="setpl">Plural</button><br>
 
-        <button type="button" id="masc">Masculine</button>
-        <button type="button" id="fem">Feminine</button>
-        <button type="button" id="neut">Neuter</button><br>
+        <button class="genders" type="button" id="masc">Masculine</button>
+        <button class="genders" type="button" id="fem">Feminine</button>
+        <button class="genders" type="button" id="neut">Neuter</button><br>
+        <button id="revealdeclensions">Reveal Declensions</button><br>
         
-        <p id="displaystuff"></p>
+        <p id="displaystatus"></p>
     </body>
+    
+    <table id="table"
+            cellpadding="1" cellspacing="0" border=1>
+      
+      <tr>
+        <td></td>
+        <td>Singular</td>
+        <td>Plural</td>
+      </tr>
+      <tr>
+        <td>Nom.</td>
+        <td id="nom.sg"></td>
+        <td id="nom.pl"></td>
+      </tr>
+      <tr>
+        <td>Voc.</td>
+        <td id="voc.sg"></td>
+        <td id="voc.pl"></td>
+      </tr>
+      <tr>
+        <td>Acc.</td>
+        <td id="acc.sg"></td>
+        <td id="acc.pl"></td>
+      </tr>
+      <tr>
+        <td>Gen.</td>
+        <td id="gen.sg"></td>
+        <td id="gen.pl"></td>
+      </tr>
+      <tr>
+        <td>Dat.</td>
+        <td id="dat.sg"></td>
+        <td id="dat.pl"></td>
+      </tr>
+      <tr>
+        <td>Abl.</td>
+        <td id="abl.sg"></td>
+        <td id="abl.pl"></td>
+      </tr>
+      <tr>
+        <td colspan = "3" id="currentword"></td>
+      </tr>
+    </table> 
 </html>
 
+<style>
+  body{
+      background-image: url("roman background.png");
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      
+      text-align: center;
+    }
+
+h1 {
+  color: goldenrod;
+  border: 2px solid red;
+  border-radius: 8px;
+  padding: 5px;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  width: fit-content;
+  }
+
+  .selected {
+    background-color: #b22222;
+    color: #fff;
+  }
+
+  table {
+    display: none;
+    width: fit-content;
+    margin: 30px auto;
+  }
+</style>
 
 <script>
 
-//Add buttons so users can select what they think is the correct answer
-//add way to check answer and click next
-//add skip (FAR DOWN THE LINE)
+//use CSS to make site look good
+//make buttons highlighted when you click them
+//use table to align buttons like in vice verba
 
 class Latinword {
     constructor(nom,gen,gender,english) {
+        this.nom=nom;
+        this.gen=gen;
         this.gender=gender;
         this.english=english;
 
@@ -368,15 +437,27 @@ let currentword = null;
 let currentform = "";
 
 function quiz() {
-  document.getElementById("displaystuff").innerHTML=""
+  if (document.getElementById("table").style.display=="block") {
+    document.getElementById("table").style.display="none";
+  }
+  cases.forEach(btn => {
+    btn.classList.remove("selected")
+  })
+  numbers.forEach(btn => {
+    btn.classList.remove("selected")
+  })
+  genders.forEach(btn => {
+    btn.classList.remove("selected")
+  })
+  document.getElementById("displaystatus").innerHTML=""
   let randword = random();
   let quizwords = [];
-  if (displaynomsg) {quizwords.push(randword.nomsg);}
-  if (displayvocsg) {quizwords.push(randword.vocsg);}
-  if (displayaccsg) {quizwords.push(randword.accsg);}
-  if (displaygensg) {quizwords.push(randword.gensg);}
-  if (displaydatsg) {quizwords.push(randword.datsg);}
-  if (displayablsg) {quizwords.push(randword.ablsg);}
+  if (displaynomsg && randword.nomsg !== '-') {quizwords.push(randword.nomsg);}
+  if (displayvocsg && randword.vocsg !== '-') {quizwords.push(randword.vocsg);}
+  if (displayaccsg && randword.accsg !== '-') {quizwords.push(randword.accsg);}
+  if (displaygensg && randword.gensg !== '-') {quizwords.push(randword.gensg);}
+  if (displaydatsg && randword.datsg !== '-') {quizwords.push(randword.datsg);}
+  if (displayablsg && randword.ablsg !== '-') {quizwords.push(randword.ablsg);}
   if (displaynompl) {quizwords.push(randword.nompl);}
   if (displayvocpl) {quizwords.push(randword.vocpl);}
   if (displayaccpl) {quizwords.push(randword.accpl);}
@@ -385,7 +466,7 @@ function quiz() {
   if (displayablpl) {quizwords.push(randword.ablpl);}
 
   if (quizwords.length == 0) {
-    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
+    document.getElementById("displaystatus").innerHTML="Please select case before quizzing!";
     return;
   }
 
@@ -394,16 +475,16 @@ function quiz() {
   currentword = randword;
   currentform = word;
 
-  document.getElementById("placeholder").innerHTML=word;
+  document.getElementById("quizword").innerHTML=word;
 }
 
 function checkans(randomword,randomform) {
     
     if (randomword.gender !== Gender || randomform !== randomword[Case+Num]){
-      document.getElementById("displaystuff").innerHTML="Incorrect!";
+      document.getElementById("displaystatus").innerHTML="Incorrect!";
     }
     else {
-      document.getElementById("displaystuff").innerHTML="Correct!";
+      document.getElementById("displaystatus").innerHTML="Correct!";
      }
   }
 
@@ -413,10 +494,70 @@ document.getElementById("quiz").addEventListener("click",function(){
 
 document.getElementById("checkans").addEventListener("click",function(){
   if (!currentword) {
-    document.getElementById("displaystuff").innerHTML="Please select case before quizzing!";
-    return;
+    if (document.getElementById("quiz").clicked !== true) {
+      document.getElementById("displaystatus").innerHTML="Please start the quiz before checking your answer!";
+    }
+    else {
+      document.getElementById("displaystatus").innerHTML="Please select case(s) before quizzing!";
+    }
+    return; //if you click this before next it returns above. fix.
   }
   checkans(currentword,currentform);
 });
+
+const cases = document.querySelectorAll(".cases");
+
+cases.forEach(btn => {
+  btn.addEventListener("click", function() {
+    cases.forEach(b => b.classList.remove("selected"));
+    this.classList.add("selected");
+  })
+})
+
+const numbers = document.querySelectorAll(".numbers");
+
+numbers.forEach(btn => {
+  btn.addEventListener("click", function() {
+    numbers.forEach(b => b.classList.remove("selected"));
+    this.classList.add("selected");
+  })
+})
+
+const genders = document.querySelectorAll(".genders");
+
+genders.forEach(btn => {
+  btn.addEventListener("click", function() {
+    genders.forEach(b => b.classList.remove("selected"));
+    this.classList.add("selected");
+  })
+})
+
+document.getElementById("revealdeclensions").addEventListener("click", function() {
+  table()
+})
+
+function table() {
+  document.getElementById("nom.sg").innerHTML=currentword.nomsg;
+  document.getElementById("voc.sg").innerHTML=currentword.vocsg;
+  document.getElementById("acc.sg").innerHTML=currentword.accsg;
+  document.getElementById("gen.sg").innerHTML=currentword.gensg;
+  document.getElementById("dat.sg").innerHTML=currentword.datsg;
+  document.getElementById("abl.sg").innerHTML=currentword.ablsg;
+  document.getElementById("nom.pl").innerHTML=currentword.nompl;
+  document.getElementById("voc.pl").innerHTML=currentword.vocpl;
+  document.getElementById("acc.pl").innerHTML=currentword.accpl;
+  document.getElementById("gen.pl").innerHTML=currentword.genpl;
+  document.getElementById("dat.pl").innerHTML=currentword.datpl;
+  document.getElementById("abl.pl").innerHTML=currentword.ablpl;
+  document.getElementById("currentword").innerHTML=`${currentword.nom}, ${currentword.gen}, ${currentword.gender}`;
+  if (document.getElementById("table").style.display=="none") {
+    document.getElementById("table").style.display="block";
+  }
+  else {
+    document.getElementById("table").style.display="none";
+  }
+}
+
+document.getElementById("table").style.display="none";
 
 </script>
