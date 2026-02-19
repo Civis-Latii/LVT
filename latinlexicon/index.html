@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
-  <title>Latinlexicon</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Latinlexicon</title>
+  </head>
   <h1>Welcome to Latinlexicon!</h1>
     <body>
        <p id="quizword"></p> 
@@ -20,21 +23,26 @@
         <button type="button" id="quiz">Next!</button>
         <button type="button" id="checkans">Check Answer</button><br>
 
-        <button class="cases" type="button" id="setnom">Nominative</button>
-        <button class="cases" type="button" id="setvoc">Vocative</button>
-        <button class="cases" type="button" id="setacc">Accusative</button>
-        <button class="cases" type="button" id="setgen">Genitive</button>
-        <button class="cases" type="button" id="setdat">Dative</button>
-        <button class="cases" type="button" id="setabl">Ablative</button><br>
-
+        <div class="casebuttons" id="casebuttons">
+          <button class="cases" id="setnom">Nominative</button>
+          <button class="cases" id="setvoc">Vocative</button>
+          <button class="cases" id="setacc">Accusative</button>
+          <button class="cases" id="setgen">Genitive</button>
+          <button class="cases" id="setdat">Dative</button>
+          <button class="cases" id="setabl">Ablative</button><br>
+        </div>
+        <div class="numberbuttons" id="numberbuttons">
         <button class="numbers" type="button" id="setsg">Singular</button>
         <button class="numbers" type="button" id="setpl">Plural</button><br>
-
+        </div>
+        <div class="genderbuttons" id="genderbuttons">
         <button class="genders" type="button" id="masc">Masculine</button>
         <button class="genders" type="button" id="fem">Feminine</button>
         <button class="genders" type="button" id="neut">Neuter</button><br>
+        </div>
+
         <button id="revealdeclensions">Reveal Declensions</button><br>
-        
+
         <p id="displaystatus"></p>
     </body>
     <table class="declensionstable" id="table">
@@ -88,7 +96,6 @@
     background-size: cover;
     
     text-align: center;
-    margin: 30px auto;
   }
 
   h1 {
@@ -140,6 +147,48 @@
  
   label {
     background-color: #d19b08;
+  }
+  .casebuttons { 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .cases {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    margin: 10px 5px;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+  .numberbuttons { 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .numbers {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    margin: 10px 5px;
+    padding: 10px 0;
+    font-size: 1.1rem;
+  }
+  .genderbuttons { 
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .genders {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    margin: 10px 5px;
+    padding: 10px 0;
+    font-size: 1.1rem;
   }
 </style>
 
