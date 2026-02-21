@@ -219,33 +219,33 @@ class Latinword {
             this.ablpl=stem+"ebus";
           }
         }
-      }
+      } //This is the constructor to decline every latinword in the vocab list properly
 
 let wordlist = [];
-const words = ("ancilla	ancillae	f	slave-girl, maid	aqua	aquae	f	water	cena	cenae	f	dinner, meal	cura	curae	f	care, worry	dea	deae	f	goddess	domina	dominae	f	mistress	epistula	epistulae	f	letter	femina	feminae	f	woman	filia	filiae	f	daughter	hora	horae	f	hour	ianua	ianuae	f	door	insula	insulae	f	island, block of flats	ira	irae	f	anger	nauta	nautae	m	sailor	pecunia	pecuniae	f	money	poena	poenae	f	punishment	porta	portae	f	gate	puella	puellae	f	girl	regina	reginae	f	queen	Roma	Romae	f	Rome (Romae = at/in Rome)	silva	silvae	f	wood	taberna	tabernae	f	shop, inn	terra	terrae	f	land	turba	turbae	f	crowd	via	viae	f	street, road, way	villa	villae	f	house, country house	vita	vitae	f	life	amicus	amici	m	friend	animus	animi	m	spirit, soul, mind	annus	anni	m	year	bellum	belli	n	war	caelum	caeli	m	sky, heaven	cibus	cibi	m	food	consilium	consilii	n	plan, idea, advice	deus	dei	m	god	dominus	domini	m	master	donum	doni	n	gift, present	equus	equi	m	horse	filius	filii	m	son	forum	fori	n	forum, market-place, marketplace	gladius	gladii	m	sword	hortus	horti	m	garden	imperium	imperii	n	empire, power, command	legatus	legati	m	commander	liberi	liberorum	m pl	children	libertus	liberti	m	freedman, ex-slave	locus	loci	m	place	maritus	mariti	m	husband	modus	modi	m	manner, way, kind	murus	muri	m	wall	nuntius	nuntii	m	messenger, message, news	periculum	periculi	n	danger	praemium	praemii	n	prize, reward, profit	puer	pueri	m	boy	servus	servi	m	slave-girl, maid	signum	signi	n	sign, signal, seal	templum	templi	n	temple	verbum	verbi	n	word	vestimenta	vestimentorum	n pl	clothes	vinum	vini	n	wine	vir	viri	m	man	amor	amoris	m	love	canis	canis	m	dog	caput	capitis	n	head	civis	civis	m/f	citizen	clamor	clamoris	m	shout	comes	comitis	m/f	comrade, companion	corpus	corporis	n	body	custos	custodis	m/f	guard	dux	ducis	m	leader	flumen	fluminis	n	river	frater	fratris	m	brother	homo	hominis	m	man, human being, person	hostis	hostis	m	enemy	ignis	ignis	m	fire	imperator	imperatoris	m	emperor, commander, general	iter	itineris	n	journey, route, way	iuvenis	iuvenis	m	young man	labor	laboris	m	work	legio	legionis	f	legion	lux	lucis	f	light, daylight	mare	maris	n	sea	mater	matris	f	mother	miles	militis	m	soldier	mons	montis	m	mountain	mors	mortis	f	death	navis	navis	f	ship	nomen	nominis	n	name	nox	noctis	f	night	pars	partis	f	part	pater	patris	m	father	pax	pacis	f	peace	pes	pedis	m	foot, paw	princeps	principis	m	chief, chieftan, emperor	rex	regis	m	king	sanguis	sanguinis	m	blood	senator	senatoris	m	senator	senex	senis	m	old man	soror	sororis	f	sister	tempus	temporis	n	time	urbs	urbis	f	city	uxor	uxoris	f	wife	vox	vocis	f	voice	vulnus	vulneris	n	wound	domus	domus	f	home, house (domi = at home)	manus	manus	f	hand, group of people	vultus	vultus	m	expression, face	dies	diei	m	day	res	rei	f	thing, business, matter	spes	spei	f	hope"
-).split(String.fromCharCode(9));
+import { lexicon } from "./latinlexicon.js";
+const words = lexicon;
 
 for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
   wordlist.push(word);
-}
+} //Creating a new Latinword for all words in the list
 
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].ablsg="domo";
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].accpl="domos";
-wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili";
+wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili"; //Setting irregular vocab forms
 
 function random(list) {
-  return list[Math.floor(Math.random() * list.length)]; //returns random word
-}
+  return list[Math.floor(Math.random() * list.length)];
+} //Basic random function
 
-const display = {
+const display = { //booleans of whether or not to add each form to the pool
   nom: {sg: false, pl: false},
   voc: {sg: false, pl: false},
   acc: {sg: false, pl: false},
   gen: {sg: false, pl: false},
   dat: {sg: false, pl: false},
   abl: {sg: false, pl: false}
-} //This makes decent sense to me
+} //This is an object with 6 objects inside, each with 2 boolean properties
 
 const cng = {
   Case: "",
@@ -253,14 +253,14 @@ const cng = {
   Gender: "",
 }
 
-const casecheckboxes = document.querySelectorAll(".casecheckboxes");
-
-casecheckboxes.forEach(box => { // => is shortform for function i.e., function(x) is just x =>; function(x) return y is x => y
+const casecheckboxes = document.querySelectorAll(".casecheckboxes"); //returns all the checkboxes
+// => shortform for function (function(x) is x =>...; function(x) return y is x => y)
+casecheckboxes.forEach(box => {
   box.addEventListener("click", () => {
     const casename = box.id;
-    display[casename].sg = !display[casename].sg;
-    display[casename].pl = !display[casename].pl;
-  })
+    display[casename].sg = box.checked;
+    display[casename].pl = box.checked;
+  }) //when box clicked, update the display[casenum] to be the same as .checked (boolean) 
 })
 
 let currentword = null;
@@ -270,13 +270,7 @@ function quiz() {
   if (document.getElementById("table").style.display=="block") {
     document.getElementById("table").style.display="none";
   }
-  cases.forEach(btn => {
-    btn.classList.remove("selected")
-  })
-  numbers.forEach(btn => {
-    btn.classList.remove("selected")
-  })
-  genders.forEach(btn => {
+  cases,numbers,genders.forEach(btn => {
     btn.classList.remove("selected")
   })
   document.getElementById("displaystatus").innerHTML=""
@@ -334,7 +328,7 @@ document.getElementById("checkans").addEventListener("click",function(){
   checkans(currentword,currentform);
 });
 
-//Top
+
 const cases = document.querySelectorAll(".cases");
 
 cases.forEach(btn => {
@@ -397,3 +391,9 @@ document.getElementById("table").style.display="none";
 
 //Add a score/progress counter for users
 //This should have Correct: x/y; Streak: ; Accuracy: z%;
+//Add homepage where users can select which cases they want to quiz on
+//Add quiz page where the quiz takes place
+//Vice-verba like layout
+//Decl. table in top right corner
+//Progress/score bar along bottom
+//Current word in BIG BOLD letters along top - e.g., maria, sea
