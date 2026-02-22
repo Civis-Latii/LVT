@@ -369,14 +369,9 @@ function table() {
   const NUMBERS = ["sg","pl"]
   CASES.forEach(c => {
     NUMBERS.forEach(n => {
-      document.getElementById(`${c}${n}`).innerHTML=currentword[c + n]
-    })
-  })
-  CASES.forEach(c => {
-    NUMBERS.forEach(n => {
       document.getElementById(`${c}.${n}`).innerHTML=currentword[c + n]
     })
-  })
+  }) 
   document.getElementById("dec").innerHTML=`${currentword.declension} dec.`;
   document.getElementById("currentword").innerHTML=`${currentword.nom}, ${currentword.gen}, ${currentword.gender}`;
   if (document.getElementById("table").style.display=="none") {
