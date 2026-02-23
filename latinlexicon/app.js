@@ -225,6 +225,7 @@ let wordlist = [];
 import { lexicon } from "./latinlexicon.js";
 const words = lexicon.trim().replace(/\r?\n/g,"\t").split("\t");
 
+
 for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
   wordlist.push(word);
@@ -237,6 +238,17 @@ wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili"; //Sett
 function random(list) {
   return list[Math.floor(Math.random() * list.length)];
 } //Basic random function
+
+const el = {
+  quiz: document.getElementById("quiz"),
+  checkans: document.getElementById("checkans"),
+  revealdeclensions: document.getElementById("revealdeclensions"),
+  displaystatus: document.getElementById("displaystatus"),
+  table: document.getElementById("table"),
+  quizword: document.getElementById("quizword"),
+  dec: document.getElementById("dec"),
+  currentword: document.getElementById("currentword"),
+}
 
 const display = { //booleans of whether or not to add each form to the pool
   nom: {sg: false, pl: false},
@@ -251,6 +263,7 @@ const cng = {
   Case: "",
   Num: "",
   Gender: "",
+  Declension: "",
 }
 
 const casecheckboxes = document.querySelectorAll(".casecheckboxes"); //returns all the checkboxes
@@ -267,20 +280,20 @@ let currentword = null;
 let currentform = "";
 
 function quiz() {
-  if (document.getElementById("table").style.display=="block") {
-    document.getElementById("table").style.display="none";
+  if (el.quiz.style.display=="block") {
+    el.table.style.display="none";
   }
 
   document.querySelectorAll(".cases",".numbers",".genders").forEach(btn => {
     btn.classList.remove("selected")
   })
 
-  document.getElementById("displaystatus").innerHTML=""
+  el.displaystatus.textContent="";
   const randword = random(wordlist);
   let quizwords = [];
 
   const Cases = ["nom","voc","acc","gen","dat","abl"];
-  const Numbers = ["sg","pl"]
+  const Numbers = ["sg","pl"];
 
   Cases.forEach(c => {
     Numbers.forEach(n => {
@@ -291,7 +304,7 @@ function quiz() {
   })
 
   if (quizwords.length == 0) {
-    document.getElementById("displaystatus").innerHTML="Please select case before quizzing!";
+    el.displaystatus.textContent="Please select case(s) before quizzing!";
     return;
   }
 
@@ -300,30 +313,39 @@ function quiz() {
   currentword = randword;
   currentform = word;
 
-  document.getElementById("quizword").innerHTML=word;
+  el.quizword.textContent=word;
+}
+
+function flash (btn) {
+  btn.classList.add("flash");
+  setTimeout(() => {
+    btn.classList.remove("flash");
+  }, 100);
 }
 
 function checkans(randomword,randomform) {
     
-    if (randomword.gender !== cng.Gender || randomform !== randomword[cng.Case+cng.Num]){
-      document.getElementById("displaystatus").innerHTML="Incorrect!";
+    if (
+      /*randomword.declension !== cng.Declension ||*/
+      randomword.gender !== cng.Gender ||  
+      randomform !== randomword[cng.Case+cng.Num]
+      ) {
+      el.displaystatus.textContent="Incorrect!";
     }
     else {
-      document.getElementById("displaystatus").innerHTML="Correct!";
+      el.displaystatus.textContent="Correct!";
     }
   }
 
-document.getElementById("quiz").addEventListener("click",function(){
+el.quiz.addEventListener("click",function(){
+  flash(this)
   quiz()
 });
 
-document.getElementById("checkans").addEventListener("click",function(){
-  this.classList.add("flash");
-  setTimeout(() => {
-    this.classList.remove("flash");
-  }, 100);
+el.checkans.addEventListener("click",function(){
+  flash(this)
   if (!currentword) {
-    document.getElementById("displaystatus").innerHTML="Please select case(s) before quizzing!";
+    el.displaystatus.textContent="Please select case(s) before quizzing!";
     return; //if you click this before next it returns above. fix.
   }
   checkans(currentword,currentform);
@@ -334,9 +356,15 @@ function setupGroup(selector, key) {
 
   buttons.forEach(btn => {
     btn.addEventListener("click", function() {
-      cng[key]=this.id.replace("set","");
-      buttons.forEach(b => b.classList.remove("selected"));
-      this.classList.add("selected");
+      if (this.classList.contains("selected")) {
+        this.classList.remove("selected");
+        cng[key] = "";
+      }
+      else {
+        buttons.forEach(b => b.classList.remove("selected"));
+        this.classList.add("selected");
+        cng[key] = this.id.replace("set","")
+      }
     });
   });
 }
@@ -344,8 +372,10 @@ function setupGroup(selector, key) {
 setupGroup(".cases", "Case");
 setupGroup(".numbers", "Num");
 setupGroup(".genders", "Gender");
+setupGroup(".declensions","Declension")
 
-document.getElementById("revealdeclensions").addEventListener("click", function() {
+el.revealdeclensions.addEventListener("click", function() {
+  flash(this)
   table()
 })
 
@@ -354,20 +384,20 @@ function table() {
   const Numbers = ["sg","pl"]
   Cases.forEach(c => {
     Numbers.forEach(n => {
-      document.getElementById(`${c}.${n}`).innerHTML=currentword[c + n]
+      document.getElementById(`${c}.${n}`).textContent=currentword[c + n]
     })
   }) 
-  document.getElementById("dec").innerHTML=`${currentword.declension} dec.`;
-  document.getElementById("currentword").innerHTML=`${currentword.nom}, ${currentword.gen}, ${currentword.gender}`;
-  if (document.getElementById("table").style.display=="none") {
-    document.getElementById("table").style.display="block";
+  el.dec.textContent=`${currentword.declension} dec.`;
+  el.currentword.textContent=`${currentword.nom}, ${currentword.gen}, ${currentword.gender}`;
+  if (el.table.style.display=="none") {
+    el.table.style.display="block";
   }
   else {
-    document.getElementById("table").style.display="none";
+    el.table.style.display="none";
   }
 }
 
-document.getElementById("table").style.display="none";
+el.table.style.display="none"; //Initialises display as 'none' (not empty) so toggle works properly
 
 //Add a score/progress counter for users
 //This should have Correct: x/y; Streak: ; Accuracy: z%;

@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  color: #8b0000;
 }
 
 body {
@@ -10,7 +11,7 @@ body {
   background-size: cover;
   
   text-align: center;
-} /*This is probably unnecessary - looks better with plain background like vice verba*/
+} 
 
 .page {
   min-height: 100vh;
@@ -22,9 +23,8 @@ body {
   margin-top: auto;
 }
 
-h1 {
-  color: #8b0000;
-  background-color: #d19b08;
+/*h1 {
+  b//ackground-color: #d19b08;
   border: 4px solid #8b0000;
   border-radius: 8px;
   padding: 20px;
@@ -33,16 +33,11 @@ h1 {
   width: fit-content;
 } /* Unused */
 
-.selected {
-  background-color: #8b0000;
-  color: #fff;
-}
-
 table {
   display: none;
   width: fit-content;
   margin: 0 auto;
-  border: 1px solid #8d0000;
+  border: 1px solid #8b0000;
   border-collapse: collapse;
   background-color: #a42a2e;
   color: white;
@@ -64,14 +59,10 @@ button {
 }
 
 .casecheckboxes {
-  accent-color: #8d0000;
+  accent-color: #8b0000;
 }
 
-label {
-  color: #8d0000;
-}
-
-.casebuttons, .numberbuttons, .genderbuttons { 
+.declensionbuttons, .casebuttons, .numberbuttons, .genderbuttons { 
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -80,7 +71,7 @@ label {
   padding-right: 20px;
 }
 
-.cases, .numbers, .genders {
+.declensions, .cases, .numbers, .genders {
   flex: 1;
   text-align: center;
   margin: 0px 2px;
@@ -100,7 +91,7 @@ label {
   margin: 0;
   padding-left: 20px;
   text-align: left;
-  color: #8b0000;
+  ;
 }
 
 #quizword {
@@ -111,7 +102,7 @@ label {
   font-size: 5rem;
 } 
 
-#checkans.flash {
+.flash, .selected {
   background-color: #8b0000;
   color: white;
 }
@@ -119,7 +110,7 @@ label {
 #displaystatus {
   min-height: 1em;
   font-size: 2.2rem;
-  color: #8b0000;
+  ;
   line-height: 1;
 }
 
