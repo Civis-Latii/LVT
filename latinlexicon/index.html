@@ -3,15 +3,15 @@
     <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="styles.css"/>
-      <script type="module" src="app.js?v=2" defer></script>
+      <script type="module" src="app.js" defer></script>
       <title>Latinlexicon</title>
     </head>
       <body>
         <div class="page">
-          <p id="quizword"></p>
+          <p id="quizword"></p> <!--It needs to be here so it can be truly centred--> 
           <div class="main-content">
             <!--<h1>Welcome to Latinlexicon!</h1>-->
-            <!--I like this header but it doesn't fit in the quiz-based page-->  
+            <!--I like this header but it doesn't fit in the quiz-based page--> 
             <input class="casecheckboxes" type="checkbox" id="nom" ></input>
             <label for="nom">Nominative</label>
             <input class="casecheckboxes" type="checkbox" id="voc" ></input>
@@ -72,9 +72,18 @@
               </table> 
             </div>
             <div class="buttons">
+              <p class="cng-headings">Declensions</p>
+              <div class="declensionbuttons"> 
+
+                <button class="declensions" id="set1st">1st</button>
+                <button class="declensions" id="set2nd">2nd</button>
+                <button class="declensions" id="set3rd">3rd</button>
+                <button class="declensions" id="set4th">4th</button>
+                <button class="declensions" id="set5th">5th</button>
+              </div>
               <p class="cng-headings">Case</p>
               <div class="casebuttons">
-                
+
                 <button class="cases" id="setnom">Nominative</button>
                 <button class="cases" id="setvoc">Vocative</button>
                 <button class="cases" id="setacc">Accusative</button>
@@ -84,13 +93,13 @@
               </div>
               <p class="cng-headings">Number</p>
               <div class="numberbuttons">
-                
+
                 <button class="numbers" type="button" id="setsg">Singular</button>
                 <button class="numbers" type="button" id="setpl">Plural</button>
               </div>
               <p class="cng-headings">Gender</p>
               <div class="genderbuttons">
-                
+
                 <button class="genders" type="button" id="setm">Masculine</button>
                 <button class="genders" type="button" id="setf">Feminine</button>
                 <button class="genders" type="button" id="setn">Neuter</button>
@@ -99,7 +108,4 @@
             </div>
           </div>
       </body>
-
 </html>
-
-
