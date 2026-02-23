@@ -116,7 +116,7 @@ color: #8b0000;
 }
 
 #displaystatus {
-  min-height: 1;
+  min-height: 1em;
   font-size: 2.2rem;
   color: #8b0000;
   line-height: 1;
