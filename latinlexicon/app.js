@@ -324,9 +324,9 @@ function flash (btn) {
 }
 
 function checkans(randomword,randomform) {
-    
+  if (randomform !== "filiis") {
     if (
-      /*randomword.declension !== cng.Declension ||*/
+      randomword.declension !== cng.Declension ||
       randomword.gender !== cng.Gender ||  
       randomform !== randomword[cng.Case+cng.Num]
       ) {
@@ -336,11 +336,19 @@ function checkans(randomword,randomform) {
       el.displaystatus.textContent="Correct!";
     }
   }
-
-el.quiz.addEventListener("click",function(){
-  flash(this)
-  quiz()
-});
+  else {
+    if (
+      (cng.Declension == "1st" && cng.Gender == "f" && randomword[cng.Case+cng.Num] == "filiis")
+      ||
+      (cng.Declension == "2nd" && cng.Gender == "m" && randomword[cng.Case+cng.Num] == "filiis")
+    ) {
+      el.displaystatus.textContent="Correct!";
+    }
+    else {
+      el.displaystatus.textContent="Incorrect!";
+    }
+  }
+}
 
 el.checkans.addEventListener("click",function(){
   flash(this)
