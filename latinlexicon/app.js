@@ -230,11 +230,11 @@ for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
   wordlist.push(word);
 } //Creating a new Latinword for all words in the list
-
+/*
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].ablsg="domo";
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].accpl="domos";
 wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili"; //Setting irregular vocab forms
-
+*/
 function random(list) {
   return list[Math.floor(Math.random() * list.length)];
 } //Basic random function
@@ -279,14 +279,26 @@ casecheckboxes.forEach(box => {
 let currentword = null;
 let currentform = "";
 
-function quiz() {
+function hidetable() {
   if (el.quiz.style.display=="block") {
     el.table.style.display="none";
   }
+}
 
-  document.querySelectorAll(".cases",".numbers",".genders").forEach(btn => {
+function removeselected(button) {
+  document.querySelectorAll(button).forEach(btn => {
     btn.classList.remove("selected")
   })
+}
+
+function quiz() {
+
+  hidetable()
+
+  removeselected(".cases")
+  removeselected(".numbers")
+  removeselected(".genders")
+  removeselected(".declensions")
 
   el.displaystatus.textContent="";
   const randword = random(wordlist);
@@ -350,6 +362,11 @@ function checkans(randomword,randomform) {
   }
 }
 
+el.quiz.addEventListener("click",function(){
+  flash(this)
+  quiz()
+});
+
 el.checkans.addEventListener("click",function(){
   flash(this)
   if (!currentword) {
@@ -373,8 +390,8 @@ function setupGroup(selector, key) {
         this.classList.add("selected");
         cng[key] = this.id.replace("set","")
       }
-    });
-  });
+    })
+  })
 }
 
 setupGroup(".cases", "Case");
