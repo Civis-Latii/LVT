@@ -23,16 +23,6 @@ body {
   margin-top: auto;
 }
 
-/*h1 {
-  b//ackground-color: #d19b08;
-  border: 4px solid #8b0000;
-  border-radius: 8px;
-  padding: 20px;
-  display: block;
-  text-align: center;
-  width: fit-content;
-} /* Unused */
-
 table {
   display: none;
   width: fit-content;
@@ -95,9 +85,9 @@ button {
 }
 
 #quizword {
-  min-height: 1.5em;
+  min-height: 1.2em;
   display: block;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
   font-size: 5rem;
 } 
@@ -109,15 +99,15 @@ button {
 
 #displaystatus {
   min-height: 1em;
-  font-size: 2.2rem;
-  ;
-  line-height: 1;
+  font-size: 3rem;
+  line-height: 1em;
+  margin: 15px;
 }
 
 #quiz, #revealdeclensions {
   margin-top: 10px;
   margin-bottom: 0px;
-  padding: 5px 20px;
+  padding: 5px 15px;
   min-height: 1.5em;
   font-size: 2.2rem;
 }
