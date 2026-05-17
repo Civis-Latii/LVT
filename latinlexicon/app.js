@@ -105,7 +105,7 @@ class Latinword {
             this.datpl=stem+"is";
             this.ablpl=stem+"is";
           }
-          else if (gen.slice(-1)=="i" && !(gen.slice(-2)=="ei")) { //2nd singular, making sure does not apply to 5th dec. "ei"
+          else if ((gen.slice(-1)=="i" && !(gen.slice(-2)=="ei")) || nom=="deus") { //2nd singular, making sure does not apply to 5th dec. "ei"; making sure that deus,dei is declined like 2nd not 5th
             this.declension="2nd";
             stem=gen.slice(0,-1);
             this.nomsg=nom;
@@ -230,11 +230,11 @@ for (let i=0;i<words.length;i+=4) {
   let word = new Latinword(words[i],words[i+1],words[i+2],words[i+3]);
   wordlist.push(word);
 } //Creating a new Latinword for all words in the list
-/*
+
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].ablsg="domo";
 wordlist[wordlist.findIndex(obj => obj.nomsg === "domus")].accpl="domos";
 wordlist[wordlist.findIndex(obj => obj.nomsg === "filius")].vocsg="fili"; //Setting irregular vocab forms
-*/
+
 function random(list) {
   return list[Math.floor(Math.random() * list.length)];
 } //Basic random function
@@ -248,6 +248,7 @@ const el = {
   quizword: document.getElementById("quizword"),
   dec: document.getElementById("dec"),
   currentword: document.getElementById("currentword"),
+  score: document.getElementById("score")
 }
 
 const display = { //booleans of whether or not to add each form to the pool
@@ -335,30 +336,39 @@ function flash (btn) {
   }, 100);
 }
 
+let total = 0
+let correct = 0
+
 function checkans(randomword,randomform) {
-  if (randomform !== "filiis") {
+  total++;
+  const ambiguousForms = ["filiis","dominis","deis"]
+  if (!ambiguousForms.includes(randomform)) {
     if (
       randomword.declension !== cng.Declension ||
-      randomword.gender !== cng.Gender ||  
+      !randomword.gender.includes(cng.Gender) ||  
       randomform !== randomword[cng.Case+cng.Num]
       ) {
       el.displaystatus.textContent="Incorrect!";
+      
     }
     else {
       el.displaystatus.textContent="Correct!";
     }
   }
   else {
-    if (
-      (cng.Declension == "1st" && cng.Gender == "f" && randomword[cng.Case+cng.Num] == "filiis")
+    const isDatOrAblPl =
+    (cng.Num == "pl" && (cng.Case == "dat" || cng.Case == "abl"))
+
+    const isCorrect = 
+    isDatOrAblPl &&
+    (
+      (cng.Declension == "1st" && cng.Gender == "f")
       ||
-      (cng.Declension == "2nd" && cng.Gender == "m" && randomword[cng.Case+cng.Num] == "filiis")
-    ) {
-      el.displaystatus.textContent="Correct!";
-    }
-    else {
-      el.displaystatus.textContent="Incorrect!";
-    }
+      (cng.Declension == "2nd" && cng.Gender == "m")
+    );
+
+    if (isCorrect) {correct++;}
+    el.displaystatus.textContent = isCorrect ? "Correct" : "Incorrect!"
   }
 }
 
@@ -421,10 +431,11 @@ function table() {
     el.table.style.display="none";
   }
 }
-
+// DO NOT DELETE //
 el.table.style.display="none"; //Initialises display as 'none' (not empty) so toggle works properly
+// DO NOT DELETE //
 
 //Add a score/progress counter for users
 //This should have Correct: x/y; Streak: ; Accuracy: z%;
-//Add homepage where users can select which cases they want to quiz on
+//Add homepage where users can select which cases/number/gender/declension they want to quiz on
 //Add quiz page where the quiz takes place
