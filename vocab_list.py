@@ -1,0 +1,480 @@
+def text():return"""
+nouns1
+ancilla | ancillae | f | slave-girl, maid
+aqua | aquae | f | water
+cena | cenae | f | dinner, meal
+cura | curae | f | care, worry
+dea | deae | f | goddess
+domina | dominae | f | mistress
+epistula | epistulae | f | letter
+femina | feminae | f | woman
+filia | filiae | f | daughter
+hora | horae | f | hour
+ianua | ianuae | f | door
+insula | insulae | f | island, block of flats
+ira | irae | f | anger
+nauta | nautae | m | sailor
+pecunia | pecuniae | f | money
+poena | poenae | f | punishment
+porta | portae | f | gate
+puella | puellae | f | girl
+regina | reginae | f | queen
+Roma | Romae | f | Rome, (Romae = at/in Rome)
+silva | silvae | f | wood
+taberna | tabernae | f | shop, inn
+terra | terrae | f | land
+turba | turbae | f | crowd
+via | viae | f | street, road, way
+villa | villae | f | house, country house
+vita | vitae | f | life
+
+nouns2
+amicus | amici | m | friend
+animus | animi | m | spirit, soul, mind
+annus | anni | m | year
+bellum | belli | n | war
+caelum | caeli | m | sky, heaven
+cibus | cibi | m | food
+consilium | consilii | n | plan, idea, advice
+deus | dei | m | god
+dominus | domini | m | master
+donum | doni | n | gift, present
+equus | equi | m | horse
+filius | filii | m | son
+forum | fori | n | forum, market-place
+gladius | gladii | m | sword
+hortus | horti | m | garden
+imperium | imperii | n | empire, power, command
+legatus | legati | m | commander
+liberi | liberorum | m pl | children
+libertus | liberti | m | freedman, ex-slave
+locus | loci | m | place
+maritus | mariti | m | husband
+modus | modi | m | manner, way, kind
+murus | muri | m | wall
+nuntius | nuntii | m | messenger, message, news
+periculum | periculi | n | danger
+praemium | praemii | n | prize, reward, profit
+puer | pueri | m | boy
+servus | servi | m | slave
+signum | signi | n | sign, signal, seal
+templum | templi | n | temple
+verbum | verbi | n | word
+vestimenta | vestimentorum | n pl | clothes
+vinum | vini | n | wine
+vir | viri | m | man
+
+nouns3
+amor | amoris | m | love
+canis | canis | m | dog
+caput | capitis | n | head
+civis | civis | m/f | citizen
+clamor | clamoris | m | shout
+comes | comitis | m/f | comrade, companion
+corpus | corporis | n | body
+custos | custodis | m/f | guard
+dux | ducis | m | leader
+flumen | fluminis | n | river
+frater | fratris | m | brother
+homo | hominis | m | man, human being, person
+hostis | hostis | m | enemy
+ignis | ignis | m | fire
+imperator | imperatoris | m | emperor, commander, general
+iter | itineris | n | journey, route, way
+iuvenis | iuvenis | m | young man
+labor | laboris | m | work
+legio | legionis | f | legion
+lux | lucis | f | light, daylight
+mare | maris | n | sea
+mater | matris | f | mother
+miles | militis | m | soldier
+mons | montis | m | mountain
+mors | mortis | f | death
+navis | navis | f | ship
+nomen | nominis | n | name
+nox | noctis | f | night
+pars | partis | f | part
+pater | patris | m | father
+pax | pacis | f | peace
+pes | pedis | m | foot, paw
+princeps | principis | m | chief, chieftain, emperor
+rex | regis | m | king
+sanguis | sanguinis | m | blood
+senator | senatoris | m | senator
+senex | senis | m | old man
+soror | sororis | f | sister
+tempus | temporis | n | time
+urbs | urbis | f | city
+uxor | uxoris | f | wife
+vox | vocis | f | voice
+vulnus | vulneris | n | wound
+
+nouns4
+domus | domus | f | home, house (domi = at home)
+manus | manus | f | hand, group of people
+vultus | vultus | m | expression, face
+
+nouns5
+dies | diei | m | day
+res | rei | f | thing, business, matter
+spes | spei | f | hope
+
+verbs1
+adiuvo | adiuvare, adiuvi, adiutus | help
+ambulo | ambulare, ambulavi | walk
+amo | amare, amavi, amatus | love, like
+appropinquo (+ dat) | appropinquare, appropinquavi | approach, come near to
+celo | celare, celavi, celatus | hide
+clamo | clamare, clamavi, clamatus | shout
+cogito | cogitare, cogitavi, cogitatus | think, consider
+curo | curare, curavi, curatus | look after, care for, supervise
+debeo | debere, debui, debitus | owe, ought, should, must
+deleo | delere, delevi, deletus | destroy
+despero | desperare, desperavi, desperatus | despair
+do | dare, dedi, datus | give
+exspecto | exspectare, exspectavi, exspectatus | wait for
+festino | festinare, festinavi | hurry
+habito | habitare, habitavi, habitatus | live
+impero (+ dat) | imperare, imperavi, imperatus | order, command
+intro | intrare, intravi, intratus | enter
+laboro | laborare, laboravi | work
+lacrimo | lacrimare, lacrimavi | weep, cry
+laudo | laudare, laudavi, laudatus | praise
+libero | liberare, liberavi, liberatus | free, set free
+narro | narrare, narravi, narratus | tell, relate
+navigo | navigare, navigavi | sail
+neco | necare, necavi, necatus | kill
+nuntio | nuntiare, nuntiavi, nuntiatus | announce, report
+oppugno | oppugnare, oppugnavi, oppugnatus | attack
+oro | orare, oravi, oratus | beg, beg for
+paro | parare, paravi, paratus | prepare
+poenas do | dare, dedi, datus | pay the penalty, be punished
+porto | portare, portavi, portatus | carry
+postulo | postulare, postulavi, postulatus | demand
+pugno | pugnare, pugnavi | fight
+puto | putare, putavi, putatus | think
+rogo | rogare, rogavi, rogatus | ask, ask for
+saluto | salutare, salutavi, salutatus | greet
+servo | servare, servavi, servatus | save, look after
+specto | spectare, spectavi, spectatus | look at, watch
+sto | stare, steti | stand
+supero | superare, superavi, superatus | overcome, overpower
+voco | vocare, vocavi, vocatus | call
+
+verbs2
+appareo | apparere, apparui | appear
+habeo | habere, habui, habitus | have
+iaceo | iacere, iacui | lie down
+iubeo | iubere, iussi, iussus | order
+maneo | manere, mansi | remain, stay
+pareo (+ dat) | parere, parui | obey
+pereo | perire, perii | die, perish
+persuadeo (+ dat) | persuadere, persuasi | persuade
+placeo (+ dat) | placere, placui | please
+praebeo | praebere, praebui, praebitus | provide
+respondeo | respondere, respondi, responsus | reply
+rideo | ridere, risi | laugh, smile
+sedeo | sedere, sedi | sit
+taceo | tacere, tacui, tacitus | be silent, be quiet
+teneo | tenere, tenui, tentus | hold, keep, possess
+terreo | terrere, terrui, territus | frighten
+timeo | timere, timui | fear, be afraid
+video | videre, vidi, visus | see
+
+verbs3
+accido | accidere, accidi | happen
+ago | agere, egi, actus | do, act, drive
+bibo | bibere, bibi | drink
+cado | cadere, cecidi, casus | fall
+capio | capere, cepi, captus | take, catch, capture, adopt (a plan)
+cognosco | cognoscere, cognovi, cognitus | get to know, find out, learn
+cogo | cogere, coegi, coactus | force, compel
+conficio | conficere, confeci, confectus | finish, wear out, exhaust
+conspicio | conspicere, conspexi, conspectus | catch sight of, notice
+constituo | constituere, constitui, constitutus | decide
+consumo | consumere, consumpsi, consumptus | eat
+credo (+ dat) | credere, credidi, creditus | believe, trust, have faith in
+curro | currere, cucurri, cursus | run
+dico | dicere, dixi, dictus | say
+discedo | discedere, discessi | depart, leave
+duco | ducere, duxi, ductus | lead, take
+effugio | effugere, effugi | escape
+emo | emere, emi, emptus | buy
+facio | facere, feci, factus | make, do
+frango | frangere, fregi, fractus | break
+fugio | fugere, fugi | run away, flee
+gero | gerere, gessi, gestus | wear (clothes), wage (war)
+iacio | iacere, ieci, iactus | throw
+incendo | incendere, incendi, incensus | burn, set on fire
+intellego | intellegere, intellexi, intellectus | understand, realise
+lego | legere, legi, lectus | read, choose
+mitto | mittere, misi, missus | send
+occido | occidere, occidi, occisus | kill
+ostendo | ostendere, ostendi, ostentus | show
+peto | petere, petivi, petitus | make for, attack, seek, beg, ask for
+pono | ponere, posui, positus | put, place, put up
+procedo | procedere, processi | advance, proceed
+promitto | promittere, promisi, promissus | promise
+quaero | quaerere, quaesivi, quaesitus | search for, look for, ask
+rapio | rapere, rapui, raptus | seize, grab
+reddo | reddere, reddidi, redditus | give back, restore
+relinquo | relinquere, reliqui, relictus | leave, leave behind
+resisto (+ dat) | resistere, restiti | resist
+scribo | scribere, scripsi, scriptus | write
+surgo | surgere, surrexi | get up, stand up, rise
+trado | tradere, tradidi, traditus | hand over
+traho | trahere, traxi, tractus | drag, draw, pull
+vendo | vendere, vendidi, venditus | sell
+vinco | vincere, vici, victus | conquer, win, be victorious
+vivo | vivere, vixi | live, be alive
+
+verbs4
+accipio | accipere, accepi, acceptus | accept, take in, receive
+advenio | advenire, adveni | arrive
+aperio | aperire, aperui, apertus | open
+audio | audire, audivi, auditus | hear, listen to
+cupio | cupere, cupivi | want, desire
+dormio | dormire, dormivi | sleep
+invenio | invenire, inveni, inventus | find
+nescio | nescire, nescivi | not know
+scio | scire, scivi, scitus | know
+sentio | sentire, sensi, sensus | feel, notice
+venio | venire, veni | come
+
+irregularVerbs
+absum | abesse | be out, be absent, be away
+adsum | adesse | be here, be present
+aufero | auferre, abstuli, ablatus | take away, carry off, steal
+coepi | coepisse, coeptus | began (past tenses only)
+eo | ire, ii | go
+fero | ferre, tuli, latus | bring, carry, bear
+inquit | inquiunt | say, said
+nolo | nolle, nolui | not want, refuse
+offero | offere, obtuli, oblatus | offer
+possum | posse | can, be able
+redeo | redire, redii | go back, come back, return
+refero | referre, retuli, relatus | bring/carry back, report, tell
+sum | esse, fui | be
+tollo | tollere, sustuli, sublatus | raise, lift up
+volo | velle, volui | want
+
+deponentVerbs
+conor | conari, conatus sum | try
+egredior | egredi, egressus sum | go out
+ingredior | ingredi, ingressus sum | enter
+loquor | loqui, locutus sum | speak
+morior | mori, mortuus sum | die
+progredior | progredi, progressus sum | advance
+regredior | regredi, regressus sum | go back, return
+sequor | sequi, secutus sum | follow
+
+adjectives212
+altus | alta, altum | high, deep
+benignus | benigna, benignum | kind, generous
+bonus | bona, bonum | good
+carus | cara, carum | dear
+ceteri | ceterae, cetera | the rest, the others
+dirus | dira, dirum | dreadful
+durus | dura, durum | hard, harsh
+iratus | irata, iratum | angry
+laetus | laeta, laetum | happy
+latus | lata, latum | wide
+longus | longa, longum | long
+magnus | magna, magnum | big, large, great
+malus | mala, malum | evil, bad
+maximus | maxima, maximum | the biggest, the greatest, very big, very great
+medius | media, medium | middle, middle of
+minimus | minima, minimum | very little, very small
+miser | misera, miserum | miserable, wretched, sad
+multus | multa, multum | much, many
+novus | nova, novum | new
+nullus | nulla, nullum | not any, no
+optimus | optima, optimum | the best, very good, excellent
+parvus | parva, parvum | small
+pauci | paucae, pauca | few, a few
+perterritus | perterrita, perterritum | terrified
+pessimus | pessima, pessimum | the worst, very bad
+plenus | plena, plenum | full
+primus | prima, primum | first
+proximus | proxima, proximum | nearest, next to
+pulcher | pulchra, pulchrum | beautiful, handsome
+quantus? | quanta?, quantum? | how big? how much?
+Romanus | Romana, Romanum | Roman
+sacer | sacra, sacrum | sacred
+saevus | saeva, saevum | savage, cruel
+solus | sola, solum | alone, lonely, only, on one's own
+stultus | stulta, stultum | stupid, foolish
+summus | summa, summum | highest, greatest, top (of)
+tantus | tanta, tantum | so great, such a great, so much
+totus | tota, totum | whole
+tutus | tuta, tutum | safe
+verus | vera, verum | true, real
+
+adjectives33
+audax | audacis | bold, daring
+brevis | breve | short, brief
+celer | celere | quick, fast
+crudelis | crudele | cruel
+difficilis | difficile | difficult
+dives | divitis | rich
+facilis | facile | easy
+ferox | ferocis | fierce, ferocious
+fidelis | fidele | faithful, loyal
+fortis | forte | brave
+gravis | grave | heavy, serious
+infelix | infelicis | unlucky, unhappy
+ingens | ingentis | huge
+iuvenis | iuvenis | young
+omnis | omne | all, every
+senex | senis | old
+talis | tale | such
+tristis | triste | sad
+
+comparativeAdjectives
+maior | maius | bigger, larger, greater
+melior | melius | better
+minor | minus | smaller, less
+peior | peius | worse
+plus | pluris | more
+
+adverbs
+adeo | indecl | so much, so greatly
+antea | indecl | before
+cur? | indecl | why?
+bene | indecl | well
+diu | indecl | for a long time
+forte | indecl | by chance
+frustra | indecl | in vain
+heri | indecl | yesterday
+hic | indecl | here
+hodie | indecl | today
+iam | indecl | now, already
+ibi | indecl | there
+interea | indecl | meanwhile
+ita | indecl | in this way, so
+ita vero | indecl | yes
+itaque | indecl | and so, therefore
+lente | indecl | slowly
+libenter | indecl | willingly, gladly
+magnopere | indecl | greatly, very much
+minime | indecl | very little, least, no
+mox | indecl | soon
+multo | multum | much
+necesse | indecl | necessary
+numquam | indecl | never
+nunc | indecl | now
+olim | indecl | once, some time ago
+paene | indecl | almost, nearly
+postea | indecl | afterwards
+postquam | indecl | after, when
+postridie | indecl | on the next day
+qualis? | quale? | what sort of?
+quam | indecl | than, how... ?, how... !
+quis? | quid? | who? what?
+quo? | indecl | where to?
+quo modo? | indecl | how? in what way?
+quot? | indecl | how many?
+saepe | indecl | often
+semper | indecl | always
+sic | indecl | thus, in this way
+sicut | indecl | just as, like
+statim | indecl | at once, immediately
+subito | indecl | suddenly
+tam | indecl | so
+tamen | indecl | however
+tandem | indecl | at last, finally
+tot | indecl | so many
+ubi | indecl | where, when, where?
+umquam | indecl | ever
+unde | indecl | from where
+vehementer | indecl | violently, loudly, strongly
+vix | indecl | scarcely, hardly, with difficulty
+
+pronouns
+aliquis | aliquid | someone, something
+alius | alia, aliud | other, another, else
+alter | altera, alterum | the other, another, the second of two
+ego | mei | I, me
+hic | haec, hoc | this
+ille | illa, illud | that, he, she, it
+is | ea, id | this, that, he, she, it, them
+meus | mea, meum | my
+nos | nostrum | we, us
+noster | nostra, nostrum | our
+qui | quae, quod | who, which
+se | sui | himself, herself, itself, themselves
+suus | sua, suum | his, her, its, their (own)
+tu | tui | you (singular)
+tuus | tua, tuum | your (singular), yours
+vester | vestra, vestrum | your (plural), yours
+vos | vestrum | you (plural)
+
+prepositions
+apud (+ acc) | indecl | among, with, at the house of
+circum (+ acc) | indecl | around, also used as prefix with verbs
+contra (+ acc) | indecl | against
+cum (+ abl) | indecl | with, together
+cum (+ subjunctive) | indecl | when, since
+de (+ abl) | indecl | from, down from, about
+e, ex (+ abl) | indecl | from, out of, away
+in (+ acc) | indecl | into, onto
+in (+ abl) | indecl | in, on
+inter (+ acc) | indecl | among, between
+per (+ acc) | indecl | through, along
+post (+ acc) | indecl | after, behind
+pro (+ abl) | indecl | in front of, for, in return for
+prope (+ acc) | indecl | near
+propter (+ acc) | indecl | because of
+sine (+ abl) | indecl | without
+sub (+ acc/abl) | indecl | under, beneath, up to
+trans (+ acc) | indecl | across
+
+conjunctions
+ac, atque | indecl | and
+aut... aut | indecl | either... or
+deinde | indecl | then
+dum | indecl | while
+enim | indecl | for
+et | indecl | and
+etiam | indecl | also, even
+igitur | indecl | therefore, and so
+iterum | indecl | again
+nam | indecl | for
+ne | indecl | that... not, so that... not
+-ne (added to end of word) | indecl | introduces question
+nec... nec | indecl | neither... nor
+neque... neque | indecl | neither... nor
+non | indecl | not
+nonne? | indecl | surely?
+num | indecl | whether
+num? | indecl | surely... not?
+quamquam | indecl | although
+-que (added to end of word) | indecl | and
+quod | indecl | because
+quoque | indecl | also
+sed | indecl | but
+si | indecl | if
+simulac, simulatque | indecl | as soon as
+ut (+ subjunctive) | indecl | that, so that, in order that
+ut (+ indicative) | indecl | as
+
+miscellaneous
+nemo | neminis | no one, nobody
+nihil | indecl | nothing
+re- | prefix used with verbs | back
+
+numerals
+centum | indecl | a hundred
+decem | indecl | ten
+duo | duae, duo | two
+mille | pl = milia | thousand
+novem | indecl | nine
+octo | indecl | eight
+quattuor | indecl | four
+quinque | indecl | five
+septem | indecl | seven
+sex | indecl | six
+tres | tria | three
+unus | una, unum | one
+
+"""
