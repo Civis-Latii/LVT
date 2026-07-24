@@ -7,13 +7,17 @@ from uuid import uuid4
 # Creates the Flask 'post office'
 # this translates JSON letters between Python and JS
 # Flask is reactive
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    template_folder="/home/Latium/latin/latinvocabtester/templates",
+    static_folder="/home/Latium/latin/latinvocabtester/templates"
+    )
 
 # Cross-Origin-Resource-Sharing
 # Allows JS to get resources with Python
 CORS(app)
 
-with open("vocab_list.txt") as file:
+with open("/home/Latium/latin/core_data/vocab_list.txt") as file:
     vocab_list = file.read()
 
 lexicon = Lexicon(vocab_list)
