@@ -1,5 +1,5 @@
-from LVT import Lexicon, QuizEngine
-from LVT_Text import text
+from core_lexicon.lexicon import Lexicon
+from quiz_engine import QuizEngine
 from flask import Flask, request
 from flask_cors import CORS
 from uuid import uuid4
@@ -13,8 +13,8 @@ app = Flask(__name__)
 # Allows JS to get resources with Python
 CORS(app)
 
-vocab_list = text().strip() 
-lexicon = Lexicon(vocab_list)
+with open("vocab_list.txt") as vocab_list:
+    lexicon = Lexicon(vocab_list)
 
 quizzes: dict[str, QuizEngine] = {}
 

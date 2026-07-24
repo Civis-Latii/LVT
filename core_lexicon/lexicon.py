@@ -1,3 +1,5 @@
+from words import Word
+
 class Lexicon:
     def __init__(self, text: str):
         self.word_type = [
@@ -82,7 +84,7 @@ class Lexicon:
             
             # Word parts are delimited by " | "
             # as this makes modification in the text file easier
-            parts = line.split(" | ")
+            parts = [part.strip() for part in line.split("|")]
             word = self.create_word(parts, current_word_type)
             wordlist.append(word)
 

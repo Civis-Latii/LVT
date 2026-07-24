@@ -1,4 +1,4 @@
-def text():return"""
+
 nouns1
 ancilla | ancillae | f | slave-girl, maid
 aqua | aquae | f | water
@@ -476,5 +476,3 @@ septem | indecl | seven
 sex | indecl | six
 tres | tria | three
 unus | una, unum | one
-
-"""
