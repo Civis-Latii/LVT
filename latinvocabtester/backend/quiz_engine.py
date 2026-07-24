@@ -1,5 +1,4 @@
 import random
-from words import Word, Noun, NotNoun
 
 class QuizEngine:
     def __init__(self):
