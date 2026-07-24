@@ -42,7 +42,7 @@ function update_elements(data) {
 
     elements.navigator_button.dataset.state = data.current_question_finished ? "next" : "skip"
     elements.navigator_button.textContent = data.current_question_finished ? "Next Question" : "Skip Question"
-    
+
     elements.navigator_button.disabled = data.quiz_is_finished
     elements.test_same_vocab.disabled = !data.quiz_is_finished
     elements.test_incorrect_vocab.disabled = !data.quiz_is_finished
@@ -65,7 +65,7 @@ async function next_question() {
     // as soon as the headers start arriving though it ceases to be a promise
     // and becomes a tangible 'thing' you can start streaming
     // even though the whole thing has not arrived
-    const response = await fetch("http://127.0.0.1:5000/next_question", {
+    const response = await fetch("/next_question", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -97,7 +97,7 @@ async function next_question() {
 }
 
 async function skip_question() {
-    const response = await fetch("http://127.0.0.1:5000/skip_question", {
+    const response = await fetch("/skip_question", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -108,7 +108,7 @@ async function skip_question() {
 
     if (data.status == "error") {
         elements.answers_and_status.textContent = data.content
-        return 
+        return
     }
 
     elements.answer_box.value = data.content
@@ -120,7 +120,7 @@ async function skip_question() {
 async function update_quiz_stats() {
     // Using response instead of update_quiz_stats_response for readability
     // This prevents clutter and is good practice
-    const response = await fetch("http://127.0.0.1:5000/quiz_stats", {
+    const response = await fetch("/quiz_stats", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -129,14 +129,14 @@ async function update_quiz_stats() {
     })
     const data = await response.json()
     const quiz_stats = `
-    Score: ${data.score_fraction} | 
-    ${data.score_percentage} | 
+    Score: ${data.score_fraction} |
+    ${data.score_percentage} |
     Progress: ${data.progress_fraction}`
     elements.quiz_stats.textContent = quiz_stats
 }
 
 async function check_answer() {
-    const response = await fetch("http://127.0.0.1:5000/check_answer", {
+    const response = await fetch("/check_answer", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -145,7 +145,7 @@ async function check_answer() {
         })
     })
     const data = await response.json()
-    
+
     if (data.status == "error") {
         elements.answers_and_status.textContent = `Error: ${data.content}`
 
@@ -196,7 +196,7 @@ elements.exit.addEventListener("click", function() {
 })
 
 elements.test_same_vocab.addEventListener("click", async function() {
-    await fetch("http://127.0.0.1:5000/next_steps", {
+    await fetch(":/next_steps", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
@@ -209,7 +209,7 @@ elements.test_same_vocab.addEventListener("click", async function() {
 })
 
 elements.test_incorrect_vocab.addEventListener("click", async function() {
-    await fetch("http://127.0.0.1:5000/next_steps", {
+    await fetch("/next_steps", {
         method: "POST",
         headers: JSON_header,
         body: JSON.stringify({
