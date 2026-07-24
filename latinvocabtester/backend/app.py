@@ -13,8 +13,10 @@ app = Flask(__name__)
 # Allows JS to get resources with Python
 CORS(app)
 
-with open("vocab_list.txt") as vocab_list:
-    lexicon = Lexicon(vocab_list)
+with open("vocab_list.txt") as file:
+    vocab_list = file.read()
+
+lexicon = Lexicon(vocab_list)
 
 quizzes: dict[str, QuizEngine] = {}
 
